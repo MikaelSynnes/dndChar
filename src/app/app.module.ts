@@ -4,7 +4,6 @@ import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { BaseStatsState } from '../state/base-stats/base-stats-state';
 import { allState } from '../state/state';
 
 @NgModule({
@@ -13,7 +12,7 @@ import { allState } from '../state/state';
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([BaseStatsState, allState]),
+    NgxsModule.forRoot([allState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
