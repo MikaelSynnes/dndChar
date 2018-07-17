@@ -1,6 +1,5 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { BaseStats } from './base-stats/base-stats-model';
-import { characterAlignment } from "./base-stats/characterAlignment";
+import { BaseStats } from './base-stats/BaseStatsModel';
 
 export class allStateModel {
     baseStats: BaseStats;

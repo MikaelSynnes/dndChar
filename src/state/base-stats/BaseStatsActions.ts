@@ -1,4 +1,4 @@
-import { BaseStats } from "./base-stats-model";
+import { BaseStats } from "./BaseStatsModel";
 
 export class UpdateBaseStats {
     static readonly type = '[BASESTAT] update';

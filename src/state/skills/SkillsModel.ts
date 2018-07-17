@@ -1,4 +1,4 @@
-export class skills {
+export class Skills {
     acrobatics: number;
     animalHandling: number;
     arcana: number;

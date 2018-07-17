@@ -1,7 +1,5 @@
 import { AbilityScoreBase } from "./AbilityScoreBase";
-
-import { characterAlignment } from "./characterAlignment";
-
+import { CharacterAlignment } from "./characterAlignment";
 import { characterClass } from "./characterClass";
 
 // Class used for all the base stats for a character sheet.
@@ -12,7 +10,7 @@ export class BaseStats extends AbilityScoreBase {
     level: number = 1;
     name: string = "test";
     race: string = "test";
-    characterAlignment : characterAlignment = characterAlignment.CN;
+    characterAlignment : CharacterAlignment = CharacterAlignment.CN;
     inspiration: number = 0;
     speed: number = 30;
     maxHitPoints: number = 1;

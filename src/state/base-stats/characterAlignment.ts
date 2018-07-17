@@ -1,5 +1,5 @@
 // Enum for character alignment.
-export enum characterAlignment {
+export enum CharacterAlignment {
     LG = "lawful good",
     NG = "neutral good",
     CG = "chaotic good",
