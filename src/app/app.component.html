@@ -1,56 +1,58 @@
 <section >
-  <input type="text" name="characterName">
+  <input type="text" name="characterName" value="{{(baseStats$|async)?.name}}">
   <label for="characterName">Character name</label>
   <ul>
     <li>
-      <input type="text" name="characterClass" id="characterClass">
+      <input type="text" name="characterClass" id="characterClass" value="{{(baseStats$|async)?.class}}">
       <label for="characterClass">Class</label>
     </li>
     <li>
-      <input type="number" readonly name="characterLevel" id="characterLevel">
+      <input type="number" readonly name="characterLevel" id="characterLevel" value="{{(baseStats$|async)?.level}}">
       <label for="characterLevel">Level</label>
     </li>
     <li>
-      <input type="text" name="characterClassBackground" id="characterClassBackground">
+      <input type="text" name="characterClassBackground" id="characterClassBackground" value="{{(baseStats$|async)?.background}}">
       <label for="characterClassBackground">Background</label>
     </li>
     <li>
-      <input type="text" name="playerName" id="playerName">
+      <input type="text" name="playerName" id="playerName" value="{{(playerName$|async)}}">
       <label for="playerName">Player name</label>
     </li>
     <li>
-      <input type="text" name="characterRace" id="characterRace">
+      <input type="text" name="characterRace" id="characterRace" value="{{(baseStats$|async)?.race}}">
       <label for="characterRace">Race</label>
     </li>
     <li>
-      <input type="text" name="characterAlignment" id="characterAlignment">
+      <input type="text" name="characterAlignment" id="characterAlignment"value="{{(baseStats$|async)?.characterAlignment}}">
       <label for="characterAlignment">Alignment</label>
     </li>
   </ul>
 </section>
 <section>
   <ul>
-    <li *ngFor="let n of baseStatNames;">
-      <input type="number" name="character{{n}}" id="character{{n}}">
-      <label for="character{{n}}">{{n}}</label>
+    <li *ngFor="let n of abilityScores;">
+      <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}">
+      <label for="character{{n.name| capitalize}}">{{n.name| capitalize}}</label>
     </li>
   </ul>
 </section>
 <section>
-  <input type="number" name="characterInspiration" id="characterInspiration">
+  <input type="number" name="characterInspiration" id="characterInspiration" value="{{(baseStats$|async)?.inspiration}}">
   <label for="characterInspiration">Inspiration</label>
 </section>
 <section>
-  <input type="number" name="characterProficiencyBonus" id="characterProficiencyBonus" readonly>
+  <input type="number" name="characterProficiencyBonus" id="characterProficiencyBonus" value="{{(baseStats$|async)?.proficiencyBonus}}">
   <label for="characterProficiencyBonus">Proficiency Bonus</label>
 </section>
 <section>
   <ul>
-    <li *ngFor="let n of baseStatNames;">
-      <input type="checkbox" name="characterSave{{n}}ProfBonus" id="characterSave{{n}}ProfBonus">
-      <input type="number" name="characterSave{{n}}" id="characterSave{{n}}" readonly>
-      <label for="characterSave{{n}}ProfBonus">{{n}}</label>
+    <li *ngFor="let n of abilityScores;">
+      <input type="checkbox" name="characterSave{{n.name| capitalize}}ProfBonus" id="characterSave{{n.name| capitalize}}ProfBonus" value="{{n.stat}}">
+      <input type="number" name="characterSave{{n.name| capitalize}}" id="characterSave{{n.name| capitalize}}" value="{{n.stat}}">
+      <label for="characterSave{{n.name| capitalize}}ProfBonus">{{n.name| capitalize}}</label>
     </li>
   </ul>
 </section>
-{{allStateModel$|async|json}}
+{{abilityScores|json}}
+<hr>
+{{baseStats$|async|json}}

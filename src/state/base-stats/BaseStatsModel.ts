@@ -8,14 +8,15 @@ export class BaseStats extends AbilityScoreBase {
     inspiraction: number = 0;
     class: characterClass = characterClass.barbarian;
     level: number = 1;
-    name: string = "test";
-    race: string = "test";
+    name: string = "test name here";
+    race: string = "test race here";
     characterAlignment : CharacterAlignment = CharacterAlignment.CN;
     inspiration: number = 0;
     speed: number = 30;
     maxHitPoints: number = 1;
     tempHitPoints:number = 0;
     damagedHitPoints: number = 0;
+    background: string = "peasant";
 
     private _iniativeBonus: number = 0;
     private _hitPoints: number = 1;
@@ -43,5 +44,9 @@ export class BaseStats extends AbilityScoreBase {
     public get proficiencyBonus () {
         //(Level / 4) + 1 rounded up
         return Math.ceil((this.level / 4) + 1);
+    }
+
+    public get allAbilityScores() {
+        return this as AbilityScoreBase;
     }
 }
