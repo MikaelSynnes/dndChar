@@ -31,7 +31,7 @@
 <section>
   <ul>
     <li *ngFor="let n of abilityScores;">
-      <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}">
+      <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}" (change)="onAbilityScoreChange($event, n)">
       <label for="character{{n.name| capitalize}}">{{n.name| capitalize}}</label>
     </li>
   </ul>

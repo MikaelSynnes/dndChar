@@ -1,6 +1,10 @@
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { UpdateAbilityScore } from './actions/UpdateAbilityScore';
+
+import { State, StateContext, Selector, Action } from '@ngxs/store';
 import { BaseStats } from './base-stats/BaseStatsModel';
 import { AbilityScoreBase } from './base-stats/AbilityScoreBase';
+import { AbilityScore } from './base-stats/AbilityScore';
+import { ResetStateModelAction } from './actions/ResetStateModelAction';
 
 export class allStateModel {
     baseStats: BaseStats = new BaseStats();
@@ -42,4 +46,18 @@ export class allState {
         return state.loggedInUser;
     }
 
+    @Action(UpdateAbilityScore)
+    updateAbilityScore(context: StateContext<allStateModel>, {payload}: UpdateAbilityScore) {
+        let state = context.getState();
+        let ability = state.baseStats[payload.name] as AbilityScore;
+        ability.stat = payload.stat;
+        state.baseStats[payload.name] = ability;
+    }
+    
+    @Action(ResetStateModelAction)
+    ResetStateModelAction(context: StateContext<allStateModel>) {
+        let state = context.getState();
+        state = new allStateModel();
+    }
 }
+

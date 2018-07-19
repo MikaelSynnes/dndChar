@@ -1,4 +1,4 @@
-import { SkillProficiencyBonus } from "../base-stats/skillProficiencyBonus";
+import { SkillProficiencyBonus } from "../base-stats/SkillProficiencyBonus";
 
 export class AllSkills {
     acrobatics: SkillModel = new SkillModel(Skills.acrobatics);
