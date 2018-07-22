@@ -40,10 +40,7 @@
   <input type="number" name="characterInspiration" id="characterInspiration" value="{{(baseStats$|async)?.inspiration}}">
   <label for="characterInspiration">Inspiration</label>
 </section>
-<section>
-  <input type="number" name="characterProficiencyBonus" id="characterProficiencyBonus" value="{{(baseStats$|async)?.proficiencyBonus}}">
-  <label for="characterProficiencyBonus">Proficiency Bonus</label>
-</section>
+<app-proficiency-bonus></app-proficiency-bonus>
 <section>
   <ul>
     <li *ngFor="let n of abilityScores;">

@@ -37,6 +37,11 @@ export class allState {
     }
 
     @Selector()
+    static getProficiencyBonus(state: allStateModel) {
+        return state.baseStats.proficiencyBonus;
+    }
+
+    @Selector()
     static getBaseStats(state: allStateModel) {
         return state.baseStats;
     }

@@ -5,13 +5,9 @@ export class AbilityScore {
     private _statBonus: number = 0;
     constructor(public name: abilityScoreName) { }
     public get stat() {
-        console.info(`Core stat of ${this.name} is ${this._coreStat} and ${this._statBonus}`);
         return this._coreStat + this._statBonus;
     }
     public set stat(newStat: number) {
-        console.info(`Core stat of ${this.name} is set to ${typeof(newStat)}`);
-        //debugger;
-        
         this._coreStat = newStat;
     }
     public set bonus(newBonus: number) {

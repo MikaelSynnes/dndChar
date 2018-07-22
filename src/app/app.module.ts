@@ -6,11 +6,15 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { allState } from '../state/state';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
+import { EnumKeysPipe } from './pipes/enum-keys.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    ProficiencyBonusComponent,
+    EnumKeysPipe
   ],
   imports: [
     BrowserModule,
