@@ -5,17 +5,20 @@ import { BaseStats } from './base-stats/BaseStatsModel';
 import { AbilityScoreBase } from './base-stats/AbilityScoreBase';
 import { AbilityScore } from './base-stats/AbilityScore';
 import { ResetStateModelAction } from './actions/ResetStateModelAction';
+import { AbilitySavingThrow } from './base-stats/AbilitySavingThrow';
 
 export class allStateModel {
     baseStats: BaseStats = new BaseStats();
     loggedInUser: string = "";
+    savingThrows: Array<AbilitySavingThrow>;
 }
 
 @State<allStateModel>({
     name: 'allStateModel',
     defaults: {
         baseStats: new BaseStats(),
-        loggedInUser: "Test username for it needs a class later"        
+        loggedInUser: "Test username for it needs a class later",
+        savingThrows: []       
     }
 })
 export class allState {
@@ -51,6 +54,13 @@ export class allState {
         return state.loggedInUser;
     }
 
+    @Selector()
+    static getSavingThrows(state: allStateModel) {
+        let savingThrows = [];
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.strength))
+        return savingThrows;
+    }
+
     @Action(UpdateAbilityScore)
     updateAbilityScore(context: StateContext<allStateModel>, {payload}: UpdateAbilityScore) {
         let state = context.getState();
@@ -60,7 +70,7 @@ export class allState {
     }
     
     @Action(ResetStateModelAction)
-    ResetStateModelAction(context: StateContext<allStateModel>) {
+    resetStateModelAction(context: StateContext<allStateModel>) {
         let state = context.getState();
         state = new allStateModel();
     }

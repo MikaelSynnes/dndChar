@@ -13,8 +13,7 @@ export class ProficiencyBonusComponent implements OnInit {
   proficiencyBonus: number = 0;
 
   constructor() {
-    this.proficiencyBonus$.subscribe(p => {
-      this.proficiencyBonus = p;
+    this.proficiencyBonus$.subscribe(() => {
     })
   }
 

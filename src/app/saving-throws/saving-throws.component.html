@@ -1,3 +1,9 @@
-<p>
-  saving-throws works!
-</p>
+<section>
+  <ul>
+    <li *ngFor="let n of savingThrows;">
+      <input type="checkbox" name="characterSave{{n.ability.name| capitalize}}ProfBonus" id="characterSave{{n.ability.name| capitalize}}ProfBonus" value="{{n.ability.stat}}">
+      <input type="number" name="characterSave{{n.ability.name| capitalize}}" id="characterSave{{n.ability.name| capitalize}}" value="{{n.ability.stat}}">
+      <label for="characterSave{{n.ability.name| capitalize}}ProfBonus">{{n.ability.name| capitalize}}</label>
+    </li>
+  </ul>
+</section>

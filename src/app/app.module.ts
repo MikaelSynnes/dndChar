@@ -8,12 +8,14 @@ import { allState } from '../state/state';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
 import { EnumKeysPipe } from './pipes/enum-keys.pipe';
+import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CapitalizePipe,
     ProficiencyBonusComponent,
+    SavingThrowsComponent,
     EnumKeysPipe
   ],
   imports: [
