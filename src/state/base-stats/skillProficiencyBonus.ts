@@ -1,6 +1,6 @@
 export enum SkillProficiencyBonus {
-    half = 1.5,
-    none = 1,
-    checked = 2,
-    expertice = 3
+    none = "0",
+    half = "0.5",
+    checked = "1",
+    expertice = "2"
 }

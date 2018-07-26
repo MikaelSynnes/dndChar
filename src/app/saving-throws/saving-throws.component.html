@@ -1,9 +1,12 @@
 <section>
   <ul>
     <li *ngFor="let n of savingThrows;">
-      <input type="checkbox" name="characterSave{{n.ability.name| capitalize}}ProfBonus" id="characterSave{{n.ability.name| capitalize}}ProfBonus" value="{{n.ability.stat}}">
+      <select (change)="parseValue($event.target.value, n)">
+        <option *ngFor="let item of options;" [value]="item" [selected]="n.proficiencyBonus==item">{{item}}</option>
+      </select>
       <input type="number" name="characterSave{{n.ability.name| capitalize}}" id="characterSave{{n.ability.name| capitalize}}" value="{{n.ability.stat}}">
       <label for="characterSave{{n.ability.name| capitalize}}ProfBonus">{{n.ability.name| capitalize}}</label>
+      {{n.proficiency}}
     </li>
   </ul>
 </section>

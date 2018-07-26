@@ -57,7 +57,13 @@ export class allState {
     @Selector()
     static getSavingThrows(state: allStateModel) {
         let savingThrows = [];
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.strength))
+        let proficiency = state.baseStats.proficiencyBonus;
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency));
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency));
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency));
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
+        savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
         return savingThrows;
     }
 

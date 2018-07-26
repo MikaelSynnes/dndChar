@@ -3,6 +3,7 @@ import { Select, Store } from '../../../node_modules/@ngxs/store';
 import { allState } from '../../state/state';
 import { Observable, Subscription } from '../../../node_modules/rxjs';
 import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
+import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
 
 @Component({
   selector: 'app-saving-throws',
@@ -12,12 +13,18 @@ import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
 export class SavingThrowsComponent implements OnInit, OnDestroy {
   savingThrows$: Subscription;
   savingThrows: Array<AbilitySavingThrow> = [];
+  SkillProficiencyBonus: SkillProficiencyBonus;
+  options: string[];
 
   constructor(private store: Store) {
     this.savingThrows$ = this.store.select(allState.getSavingThrows).subscribe(s => {
-      console.log(s);
       this.savingThrows = s;
     });
+    this.options = Object.keys(SkillProficiencyBonus);
+  }
+
+  parseValue(value : string, ability: AbilitySavingThrow) {
+    ability.proficiencyBonus = SkillProficiencyBonus[value];
   }
 
   ngOnInit() {
