@@ -1,3 +1,10 @@
-<p>
-  core-stats works!
-</p>
+<section>
+  <h1>STATS</h1>
+    <ul>
+      <li *ngFor="let n of abilityScores">
+        <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}" (change)="onAbilityScoreChange($event, n)">
+        <label for="character{{n.name| capitalize}}">{{n.name| capitalize}}</label>
+      </li>
+    </ul>
+  <app-inspiration></app-inspiration>
+</section>

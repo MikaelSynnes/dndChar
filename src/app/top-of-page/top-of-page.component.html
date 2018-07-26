@@ -1,3 +1,30 @@
-<p>
-  top-of-page works!
-</p>
+<section >
+    <input type="text" name="characterName" value="{{(baseStats$|async)?.name}}">
+    <label for="characterName">Character name</label>
+    <ul>
+      <li>
+        <input type="text" name="characterClass" id="characterClass" value="{{(baseStats$|async)?.class}}">
+        <label for="characterClass">Class</label>
+      </li>
+      <li>
+        <input type="number" readonly name="characterLevel" id="characterLevel" value="{{(baseStats$|async)?.level}}">
+        <label for="characterLevel">Level</label>
+      </li>
+      <li>
+        <input type="text" name="characterClassBackground" id="characterClassBackground" value="{{(baseStats$|async)?.background}}">
+        <label for="characterClassBackground">Background</label>
+      </li>
+      <li>
+        <input type="text" name="playerName" id="playerName" value="{{(playerName$|async)}}">
+        <label for="playerName">Player name</label>
+      </li>
+      <li>
+        <input type="text" name="characterRace" id="characterRace" value="{{(baseStats$|async)?.race}}">
+        <label for="characterRace">Race</label>
+      </li>
+      <li>
+        <input type="text" name="characterAlignment" id="characterAlignment"value="{{(baseStats$|async)?.characterAlignment}}">
+        <label for="characterAlignment">Alignment</label>
+      </li>
+    </ul>
+  </section>

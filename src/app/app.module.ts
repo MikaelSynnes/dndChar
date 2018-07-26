@@ -9,6 +9,9 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
 import { EnumKeysPipe } from './pipes/enum-keys.pipe';
 import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
+import { TopOfPageComponent } from './top-of-page/top-of-page.component';
+import { CoreStatsComponent } from './core-stats/core-stats.component';
+import { InspirationComponent } from './inspiration/inspiration.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,10 @@ import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
     CapitalizePipe,
     ProficiencyBonusComponent,
     SavingThrowsComponent,
+    TopOfPageComponent,
+    CoreStatsComponent,
+    InspirationComponent,
+    ProficiencyBonusComponent,
     EnumKeysPipe
   ],
   imports: [

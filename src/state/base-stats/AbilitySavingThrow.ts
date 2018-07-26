@@ -20,8 +20,6 @@ export class AbilitySavingThrow {
             return this.ability.getAbilityScoreModifier();
         }
         let bonus = this.ability.getAbilityScoreModifier() + Math.floor(+this._proficiencyBonus * this._proficiencyScore);
-console.log(Math.floor(+this._proficiencyBonus * this._proficiencyScore));
-console.log(this._proficiencyBonus, this._proficiencyScore);
         return Math.floor(bonus);
     }
 }

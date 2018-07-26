@@ -16,6 +16,6 @@ export class AbilityScore {
     public getAbilityScoreModifier() {
         let currentStat = this._coreStat + this._statBonus;
         let bonus = (currentStat - 10) / 2;
-        return bonus;
+        return Math.floor(bonus);
     }
 }
