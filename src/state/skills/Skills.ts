@@ -15,6 +15,6 @@ export enum Skills {
     persuasion = "persuasion",
     religion = "religion",
     sleightOfHand = "sleightOfHand",
-    stelth = "stelth",
+    stealth = "stealth",
     survival = "survival"
 }

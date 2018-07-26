@@ -1,6 +1,10 @@
 <p>Skills</p>
 <ul>
-  <li *ngFor="let skill of options">
-    
+  <li *ngFor="let skill of skills">
+    <select (change)="parseValue($event.target.value, skill)">
+      <option *ngFor="let item of options;" [value]="item" [selected]="skill.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
+    </select>
+    <input type="number" name="skill{{skill.name| capitalize}}" id="skill{{skill.name| capitalize}}" value="{{skill.proficiencyScore}}">
+    <label for="skill{{skill.name| capitalize}}">{{skill.name| capitalize}}</label>
   </li>
 </ul>

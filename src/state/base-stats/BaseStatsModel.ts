@@ -1,6 +1,7 @@
 import { AbilityScoreBase } from "./AbilityScoreBase";
 import { CharacterAlignment } from "./characterAlignment";
 import { characterClass } from "./characterClass";
+import { SkillModel } from "../skills/SkillsModel";
 
 // Class used for all the base stats for a character sheet.
 export class BaseStats extends AbilityScoreBase {

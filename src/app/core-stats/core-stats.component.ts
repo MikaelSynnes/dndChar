@@ -34,6 +34,5 @@ export class CoreStatsComponent implements OnInit {
     //Use the unary operator + to convert the string value to number.
     newStat.stat = +event.target.value;
     this.store.dispatch(new UpdateAbilityScore(newStat));
-    console.log("test")
   }
 }

@@ -4,15 +4,23 @@ export class AbilityScore {
     private _coreStat: number = 8;
     private _statBonus: number = 0;
     constructor(public name: abilityScoreName) { }
+
     public get stat() {
         return this._coreStat + this._statBonus;
     }
+    
     public set stat(newStat: number) {
         this._coreStat = newStat;
     }
+    
     public set bonus(newBonus: number) {
         this._statBonus = newBonus;
     }
+    
+    public get bonus() {
+        return this._statBonus;
+    }
+    
     public getAbilityScoreModifier() {
         let currentStat = this._coreStat + this._statBonus;
         let bonus = (currentStat - 10) / 2;

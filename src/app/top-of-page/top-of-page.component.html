@@ -23,6 +23,9 @@
         <label for="characterRace">Race</label>
       </li>
       <li>
+        <select (change)="parseAlignment($event.target.value)">
+            <option *ngFor="let item of charAlignments;" [value]="item" [selected]="(baseStats$|async)?.characterAlignment==CharacterAlignment[item]">{{item}}</option>
+          </select>
         <input type="text" name="characterAlignment" id="characterAlignment"value="{{(baseStats$|async)?.characterAlignment}}">
         <label for="characterAlignment">Alignment</label>
       </li>

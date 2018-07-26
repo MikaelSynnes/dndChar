@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { allState } from '../../state/state';
 import { SkillModel } from '../../state/skills/SkillsModel';
-import { AllSkills } from "../../state/skills/AllSkills";
 import { Observable } from '../../../node_modules/rxjs';
 import { Select, Store } from '../../../node_modules/@ngxs/store';
 import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
+import { UpdateSkillModelAction } from '../../state/actions/UpdateSkillModelAction';
 
 @Component({
   selector: 'app-skills',
@@ -14,21 +14,13 @@ import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBo
 export class SkillsComponent implements OnInit {
   @Select(allState.getSkills) skills$: Observable<SkillModel>;
   skills: SkillModel[];
+  SkillProficiencyBonus = SkillProficiencyBonus;
   options: string[];
 
   constructor(private store: Store) {
     store.select(allState.getSkills).subscribe(allSkills => {
-      let keys = Object.keys(allSkills);
-      this.skills = [];
-      for( let prop of keys) {
-        if(prop == "_baseStats") {
-          continue;
-        }
-        this.skills.push(allSkills[prop]);
-      }
-      console.log(this.skills);
+      this.skills = allSkills;
     });
-    //this.skills[0].proficiency
     this.options = Object.keys(SkillProficiencyBonus);
   }
 
@@ -36,7 +28,8 @@ export class SkillsComponent implements OnInit {
   }
 
   parseValue(value : string, ability: SkillModel) {
-    ability.proficiency = SkillProficiencyBonus[value];
+    ability.proficiencyBonus = SkillProficiencyBonus[value];
+    this.store.dispatch(new UpdateSkillModelAction(ability));
   }
 
 }
