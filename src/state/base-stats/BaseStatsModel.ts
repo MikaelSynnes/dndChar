@@ -5,7 +5,6 @@ import { characterClass } from "./characterClass";
 // Class used for all the base stats for a character sheet.
 export class BaseStats extends AbilityScoreBase {
     experience: number = 0;
-    inspiraction: number = 0;
     class: characterClass = characterClass.barbarian;
     level: number = 1;
     name: string = "test name here";
@@ -52,9 +51,6 @@ export class BaseStats extends AbilityScoreBase {
     
     public get savingThrows() {
         let savingThrows = Array();
-
-        
-
         return savingThrows;
     }
 }

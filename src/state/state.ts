@@ -6,6 +6,7 @@ import { AbilityScoreBase } from './base-stats/AbilityScoreBase';
 import { AbilityScore } from './base-stats/AbilityScore';
 import { ResetStateModelAction } from './actions/ResetStateModelAction';
 import { AbilitySavingThrow } from './base-stats/AbilitySavingThrow';
+import { UpdateInspirationAction } from './actions/UpdateInspirationAction';
 
 export class allStateModel {
     baseStats: BaseStats = new BaseStats();
@@ -73,12 +74,21 @@ export class allState {
         let ability = state.baseStats[payload.name] as AbilityScore;
         ability.stat = payload.stat;
         state.baseStats[payload.name] = ability;
+        context.setState(state);
     }
     
     @Action(ResetStateModelAction)
     resetStateModelAction(context: StateContext<allStateModel>) {
         let state = context.getState();
         state = new allStateModel();
+        context.setState(state);
+    }
+
+    @Action(UpdateInspirationAction)
+    UpdateInspirationAction(context: StateContext<allStateModel>, {payload}: UpdateInspirationAction) {
+        let state = context.getState();
+        state.baseStats.inspiration = payload;
+        context.setState(state);
     }
 }
 
