@@ -12,6 +12,7 @@ import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
 import { TopOfPageComponent } from './top-of-page/top-of-page.component';
 import { CoreStatsComponent } from './core-stats/core-stats.component';
 import { InspirationComponent } from './inspiration/inspiration.component';
+import { SkillsComponent } from './skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InspirationComponent } from './inspiration/inspiration.component';
     CoreStatsComponent,
     InspirationComponent,
     ProficiencyBonusComponent,
+    SkillsComponent,
     EnumKeysPipe
   ],
   imports: [

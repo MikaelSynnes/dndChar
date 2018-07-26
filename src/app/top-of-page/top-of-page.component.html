@@ -7,7 +7,7 @@
         <label for="characterClass">Class</label>
       </li>
       <li>
-        <input type="number" readonly name="characterLevel" id="characterLevel" value="{{(baseStats$|async)?.level}}">
+        <input type="number" name="characterLevel" id="characterLevel" value="{{(baseStats$|async)?.level}}" (change)="onLevelChange($event.target.value)">
         <label for="characterLevel">Level</label>
       </li>
       <li>

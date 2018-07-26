@@ -1,5 +1,4 @@
 import { UpdateAbilityScore } from './actions/UpdateAbilityScore';
-
 import { State, StateContext, Selector, Action } from '@ngxs/store';
 import { BaseStats } from './base-stats/BaseStatsModel';
 import { AbilityScoreBase } from './base-stats/AbilityScoreBase';
@@ -7,6 +6,8 @@ import { AbilityScore } from './base-stats/AbilityScore';
 import { ResetStateModelAction } from './actions/ResetStateModelAction';
 import { AbilitySavingThrow } from './base-stats/AbilitySavingThrow';
 import { UpdateInspirationAction } from './actions/UpdateInspirationAction';
+import { AllSkills } from "./skills/AllSkills";
+import { UpdateCharacterLevelAction } from './actions/UpdateCharacterLevelAction';
 
 export class allStateModel {
     baseStats: BaseStats = new BaseStats();
@@ -19,10 +20,11 @@ export class allStateModel {
     defaults: {
         baseStats: new BaseStats(),
         loggedInUser: "Test username for it needs a class later",
-        savingThrows: []       
+        savingThrows: []
     }
 })
 export class allState {
+
     @Selector()
     static getAllState(state: allStateModel) {
         return state;
@@ -56,6 +58,11 @@ export class allState {
     }
 
     @Selector()
+    static getSkills(state: allStateModel) {
+        return new AllSkills(state.baseStats);
+    }
+
+    @Selector()
     static getSavingThrows(state: allStateModel) {
         let savingThrows = [];
         let proficiency = state.baseStats.proficiencyBonus;
@@ -85,9 +92,16 @@ export class allState {
     }
 
     @Action(UpdateInspirationAction)
-    UpdateInspirationAction(context: StateContext<allStateModel>, {payload}: UpdateInspirationAction) {
+    updateInspirationAction(context: StateContext<allStateModel>, {payload}: UpdateInspirationAction) {
         let state = context.getState();
         state.baseStats.inspiration = payload;
+        context.setState(state);
+    }
+
+    @Action(UpdateCharacterLevelAction)
+    updateCharacterLevelAction(context: StateContext<allStateModel>, {payload}: UpdateCharacterLevelAction) {
+        let state = context.getState();
+        state.baseStats.level = payload;
         context.setState(state);
     }
 }

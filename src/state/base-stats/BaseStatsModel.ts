@@ -48,9 +48,4 @@ export class BaseStats extends AbilityScoreBase {
     public get allAbilityScores() {
         return this as AbilityScoreBase;
     }
-    
-    public get savingThrows() {
-        let savingThrows = Array();
-        return savingThrows;
-    }
 }

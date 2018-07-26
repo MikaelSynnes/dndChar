@@ -4,6 +4,6 @@ export enum abilityScoreName {
     dexterity = "dexterity",
     constitution = "constitution",
     intelligence = "intelligence",
-    wisdom = "widwom",
+    wisdom = "wisdom",
     charisma = "charisma"
 }
