@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { allState } from '../../state/state';
+import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
 import { Subscription } from 'rxjs';
 import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
 import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
@@ -17,7 +17,7 @@ export class SavingThrowsComponent implements OnInit, OnDestroy {
   SkillProficiencyBonus = SkillProficiencyBonus;
 
   constructor(private store: Store) {
-    this.savingThrows$ = this.store.select(allState.getSavingThrows).subscribe(s => {
+    this.savingThrows$ = this.store.select(BaseCharacterModelState.getSavingThrows).subscribe(s => {
       this.savingThrows = s;
     });
     this.options = Object.keys(SkillProficiencyBonus);

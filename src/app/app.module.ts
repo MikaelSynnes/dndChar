@@ -4,7 +4,6 @@ import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { allState } from '../state/state';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
 import { EnumKeysPipe } from './pipes/enum-keys.pipe';
@@ -14,6 +13,7 @@ import { CoreStatsComponent } from './core-stats/core-stats.component';
 import { InspirationComponent } from './inspiration/inspiration.component';
 import { SkillsComponent } from './skills/skills.component';
 import { HealthComponent } from './health/health.component';
+import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { HealthComponent } from './health/health.component';
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([allState]),
+    NgxsModule.forRoot([BaseCharacterModelState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],

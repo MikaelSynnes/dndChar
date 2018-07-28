@@ -17,14 +17,14 @@ import { UpdateDamageTakenAction } from './actions/UpdateDamageTakenAction';
 import { UpdateTemporaryHitPointsAction } from './actions/UpdateTemporaryHitPointsAction';
 import { UpdateHealthAction } from './actions/UpdateHealthAction';
 
-export class allStateModel {
+export class BaseCharacterModel {
     baseStats: BaseStats = new BaseStats();
     loggedInUser: string = "Test username for it needs a class later";
     savingThrows: Array<AbilitySavingThrow>;
     skills: Array<SkillModel>;
 }
 
-@State<allStateModel>({
+@State<BaseCharacterModel>({
     name: 'allStateModel',
     defaults: {
         baseStats: new BaseStats(),
@@ -33,15 +33,15 @@ export class allStateModel {
         skills: [],
     }
 })
-export class allState {
+export class BaseCharacterModelState {
 
     @Selector()
-    static getAllState(state: allStateModel) {
+    static getAllState(state: BaseCharacterModel) {
         return state;
     }
 
     @Selector()
-    static getAbilityScores(state: allStateModel) {
+    static getAbilityScores(state: BaseCharacterModel) {
         let s = new AbilityScoreBase();
         s.charisma = state.baseStats.charisma;
         s.constitution = state.baseStats.constitution;
@@ -53,26 +53,26 @@ export class allState {
     }
 
     @Selector()
-    static getProficiencyBonus(state: allStateModel) {
+    static getProficiencyBonus(state: BaseCharacterModel) {
         return state.baseStats.proficiencyBonus;
     }
 
     @Selector()
-    static getBaseStats(state: allStateModel) {
+    static getBaseStats(state: BaseCharacterModel) {
         return state.baseStats;
     }
 
     @Selector()
-    static getPlayerName(state: allStateModel) {
+    static getPlayerName(state: BaseCharacterModel) {
         return state.loggedInUser;
     }
 
     @Selector()
-    static getSkills(state: allStateModel) {
-        if(state.skills === undefined || state.skills.length === 0) {
+    static getSkills(state: BaseCharacterModel) {
+        if (state.skills === undefined || state.skills.length === 0) {
             let skills: SkillModel[] = [];
             let proficiency = state.baseStats.proficiencyBonus;
-            skills.push(new SkillModel(Skills.acrobatics, state.baseStats.dexterity,proficiency, SkillProficiencyBonus.none));
+            skills.push(new SkillModel(Skills.acrobatics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.none));
             skills.push(new SkillModel(Skills.animalHandling, state.baseStats.wisdom, proficiency, SkillProficiencyBonus.half));
             skills.push(new SkillModel(Skills.arcana, state.baseStats.intelligence, proficiency, SkillProficiencyBonus.checked));
             skills.push(new SkillModel(Skills.athletics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.expertice));
@@ -91,12 +91,12 @@ export class allState {
             skills.push(new SkillModel(Skills.stealth, state.baseStats.dexterity, proficiency));
             skills.push(new SkillModel(Skills.survival, state.baseStats.wisdom, proficiency));
             state.skills = skills;
-        }        
+        }
         return state.skills;
     }
 
     @Selector()
-    static getSavingThrows(state: allStateModel) {
+    static getSavingThrows(state: BaseCharacterModel) {
         let savingThrows = [];
         let proficiency = state.baseStats.proficiencyBonus;
         savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
@@ -109,12 +109,12 @@ export class allState {
     }
 
     @Selector()
-    static getHealthInfo(state: allStateModel){
+    static getHealthInfo(state: BaseCharacterModel) {
         return state.baseStats as HealthInfoInterface;
     }
 
     @Action(UpdateAbilityScore)
-    updateAbilityScore(context: StateContext<allStateModel>, { payload }: UpdateAbilityScore) {
+    updateAbilityScore(context: StateContext<BaseCharacterModel>, { payload }: UpdateAbilityScore) {
         let state = context.getState();
         let ability = state.baseStats[payload.name] as AbilityScore;
         ability.stat = payload.stat;
@@ -123,56 +123,56 @@ export class allState {
     }
 
     @Action(ResetStateModelAction)
-    resetStateModelAction(context: StateContext<allStateModel>) {
+    resetStateModelAction(context: StateContext<BaseCharacterModel>) {
         let state = context.getState();
-        state = new allStateModel();
+        state = new BaseCharacterModel();
         context.setState(state);
     }
 
     @Action(UpdateInspirationAction)
-    updateInspirationAction(context: StateContext<allStateModel>, { payload }: UpdateInspirationAction) {
+    updateInspirationAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateInspirationAction) {
         let state = context.getState();
         state.baseStats.inspiration = payload;
         context.setState(state);
     }
 
     @Action(UpdateCharacterLevelAction)
-    updateCharacterLevelAction(context: StateContext<allStateModel>, { payload }: UpdateCharacterLevelAction) {
+    updateCharacterLevelAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateCharacterLevelAction) {
         let state = context.getState();
         state.baseStats.level = payload;
         context.setState(state);
     }
 
     @Action(UpdateSkillModelAction)
-    updateSkillModelAction(context: StateContext<allStateModel>, {payload}: UpdateSkillModelAction) {
+    updateSkillModelAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateSkillModelAction) {
         let state = context.getState();
         state.skills[payload.name] = payload;
         context.setState(state);
     }
 
     @Action(UpdateCharacterAlignmentAction)
-    updateCharacterAlignmentAction(context: StateContext<allStateModel>, {payload}: UpdateCharacterAlignmentAction) {
+    updateCharacterAlignmentAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateCharacterAlignmentAction) {
         let state = context.getState();
         state.baseStats.characterAlignment = payload;
         context.setState(state);
     }
 
     @Action(UpdateDamageTakenAction)
-    updateDamageTakenAction(context: StateContext<allStateModel>, {payload}: UpdateDamageTakenAction) {
+    updateDamageTakenAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateDamageTakenAction) {
         let state = context.getState();
         state.baseStats.damagedHitPoints = payload;
         context.setState(state);
     }
 
     @Action(UpdateTemporaryHitPointsAction)
-    updateTemporaryHitPointsAction(context: StateContext<allStateModel>, {payload}: UpdateTemporaryHitPointsAction) {
+    updateTemporaryHitPointsAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateTemporaryHitPointsAction) {
         let state = context.getState();
         state.baseStats.tempHitPoints = payload;
         context.setState(state);
     }
 
     @Action(UpdateHealthAction)
-    updateHealthAction(context: StateContext<allStateModel>, {payload}: UpdateHealthAction) {
+    updateHealthAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateHealthAction) {
         let state = context.getState();
         state.baseStats.setHitPoints(payload.value, payload.fullHeal);
         context.setState(state);

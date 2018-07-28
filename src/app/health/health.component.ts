@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { allState, allStateModel } from '../../state/state';
+import { BaseCharacterModelState, BaseCharacterModel } from 'src/state/BaseCharacterModelState';
 import { Observable } from 'rxjs';
 import { HealthInfoInterface } from '../../state/base-stats/HealthInfoInterface';
 import { UpdateHealthAction } from '../../state/actions/UpdateHealthAction';
@@ -13,7 +13,7 @@ import { UpdateDamageTakenAction } from '../../state/actions/UpdateDamageTakenAc
   styleUrls: ['./health.component.css']
 })
 export class HealthComponent implements OnInit {
-    @Select(allState.getHealthInfo) healthInfo$: Observable<HealthInfoInterface>;
+    @Select(BaseCharacterModelState.getHealthInfo) healthInfo$: Observable<HealthInfoInterface>;
 
   constructor(private store: Store) { }
 

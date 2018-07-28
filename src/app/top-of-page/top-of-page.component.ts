@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { allStateModel, allState } from '../../state/state';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { UpdateCharacterLevelAction } from '../../state/actions/UpdateCharacterLevelAction';
 import { CharacterAlignment } from '../../state/base-stats/characterAlignment';
 import { UpdateCharacterAlignmentAction } from '../../state/actions/UpdateCharacterAlignmentAction';
+import { BaseCharacterModelState, BaseCharacterModel } from 'src/state/BaseCharacterModelState';
 
 @Component({
   selector: 'app-top-of-page',
@@ -13,8 +13,8 @@ import { UpdateCharacterAlignmentAction } from '../../state/actions/UpdateCharac
 })
 export class TopOfPageComponent implements OnInit {
   CharacterAlignment = CharacterAlignment;
-  @Select(allState.getBaseStats) baseStats$: Observable<allStateModel>;
-  @Select(allState.getPlayerName) playerName$: Observable<string>;
+  @Select(BaseCharacterModelState.getBaseStats) baseStats$: Observable<BaseCharacterModel>;
+  @Select(BaseCharacterModelState.getPlayerName) playerName$: Observable<string>;
 
   charAlignments: string[];
 

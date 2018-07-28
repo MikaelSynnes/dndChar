@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { allState, allStateModel } from '../../state/state';
+import { BaseCharacterModelState, BaseCharacterModel } from 'src/state/BaseCharacterModelState';
 import { Observable } from 'rxjs';
 import { UpdateInspirationAction } from '../../state/actions/UpdateInspirationAction';
 
@@ -10,7 +10,7 @@ import { UpdateInspirationAction } from '../../state/actions/UpdateInspirationAc
   styleUrls: ['./inspiration.component.css']
 })
 export class InspirationComponent implements OnInit {
-  @Select(allState.getBaseStats) baseStats$: Observable<allStateModel>;
+  @Select(BaseCharacterModelState.getBaseStats) baseStats$: Observable<BaseCharacterModel>;
 
   constructor(private store: Store) { }
 
