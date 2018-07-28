@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from 'node_modules/@ngxs/store';
+import { Store } from '@ngxs/store';
 import { allState } from '../../state/state';
-import { Subscription } from 'node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
 import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
 

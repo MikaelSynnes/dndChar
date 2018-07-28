@@ -1,0 +1,15 @@
+<section>
+    <label for="characterHealth">Damage taken</label>
+    <input type="number" name="characterHealth" id="characterHealth" value="{{(healthInfo$|async).damagedHitPoints}}" (change)="onDamageTaken($event.target.value)">
+</section>
+<section>
+    <label for="characterHealthTemp">Temp</label>
+    <input type="number" name="characterHealthTemp" id="characterHealthTemp" value="{{(healthInfo$|async).tempHitPoints}}" (change)="onHealthTempChange($event.target.value)">
+</section>
+<section>
+    Current hit points: {{(healthInfo$|async).getCurrentHitPoints()}}
+</section>
+<section>        
+    Current max:
+    {{(healthInfo$|async).maxHitPoints}}
+</section>

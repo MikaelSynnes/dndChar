@@ -1,6 +1,6 @@
 import { Skills } from "./Skills";
 import { SkillProficiencyBonus } from "../base-stats/SkillProficiencyBonus";
-import { AbilityScore } from "src/state/base-stats/AbilityScore";
+import { AbilityScore } from "../base-stats/AbilityScore";
 
 export class SkillModel {
     SkillProficiencyBonus = SkillProficiencyBonus;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '../../../node_modules/@ngxs/store';
-import { allState, allStateModel } from 'src/state/state';
-import { Observable } from '../../../node_modules/rxjs';
+import { Select, Store } from '@ngxs/store';
+import { allState, allStateModel } from '../../state/state';
+import { Observable } from 'rxjs';
 import { UpdateInspirationAction } from '../../state/actions/UpdateInspirationAction';
 
 @Component({

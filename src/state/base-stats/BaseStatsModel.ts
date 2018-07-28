@@ -1,10 +1,10 @@
+import { HealthInfoInterface } from "./HealthInfoInterface";
 import { AbilityScoreBase } from "./AbilityScoreBase";
 import { CharacterAlignment } from "./characterAlignment";
 import { characterClass } from "./characterClass";
-import { SkillModel } from "../skills/SkillsModel";
 
 // Class used for all the base stats for a character sheet.
-export class BaseStats extends AbilityScoreBase {
+export class BaseStats extends AbilityScoreBase implements HealthInfoInterface {
     experience: number = 0;
     class: characterClass = characterClass.barbarian;
     level: number = 1;
@@ -30,11 +30,11 @@ export class BaseStats extends AbilityScoreBase {
         this._iniativeBonus = newBonus;
     }
 
-    public get currentHitPoint() {
+    public getCurrentHitPoints() {
         return this._hitPoints + this.tempHitPoints - this.damagedHitPoints;
     }
 
-    public hitPoints(newHitPoint: number, fullHeal: boolean = false) {
+    public setHitPoints(newHitPoint: number, fullHeal: boolean = false) {
         if(fullHeal) {
             this._hitPoints = newHitPoint;
         }

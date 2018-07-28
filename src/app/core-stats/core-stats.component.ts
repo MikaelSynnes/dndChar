@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '../../../node_modules/@ngxs/store';
-import { allState } from 'src/state/state';
-import { Observable } from '../../../node_modules/rxjs';
+import { Select, Store } from '@ngxs/store';
+import { allState } from '../../state/state';
+import { Observable } from 'rxjs';
 import { AbilityScoreBase } from '../../state/base-stats/AbilityScoreBase';
 import { AbilityScore } from '../../state/base-stats/AbilityScore';
 import { UpdateAbilityScore } from '../../state/actions/UpdateAbilityScore';

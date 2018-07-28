@@ -12,6 +12,10 @@ import { Skills } from './skills/Skills';
 import { SkillProficiencyBonus } from './base-stats/SkillProficiencyBonus';
 import { UpdateSkillModelAction } from './actions/UpdateSkillModelAction';
 import { UpdateCharacterAlignmentAction } from './actions/UpdateCharacterAlignmentAction';
+import { HealthInfoInterface } from './base-stats/HealthInfoInterface';
+import { UpdateDamageTakenAction } from './actions/UpdateDamageTakenAction';
+import { UpdateTemporaryHitPointsAction } from './actions/UpdateTemporaryHitPointsAction';
+import { UpdateHealthAction } from './actions/UpdateHealthAction';
 
 export class allStateModel {
     baseStats: BaseStats = new BaseStats();
@@ -104,6 +108,11 @@ export class allState {
         return savingThrows;
     }
 
+    @Selector()
+    static getHealthInfo(state: allStateModel){
+        return state.baseStats as HealthInfoInterface;
+    }
+
     @Action(UpdateAbilityScore)
     updateAbilityScore(context: StateContext<allStateModel>, { payload }: UpdateAbilityScore) {
         let state = context.getState();
@@ -145,6 +154,27 @@ export class allState {
     updateCharacterAlignmentAction(context: StateContext<allStateModel>, {payload}: UpdateCharacterAlignmentAction) {
         let state = context.getState();
         state.baseStats.characterAlignment = payload;
+        context.setState(state);
+    }
+
+    @Action(UpdateDamageTakenAction)
+    updateDamageTakenAction(context: StateContext<allStateModel>, {payload}: UpdateDamageTakenAction) {
+        let state = context.getState();
+        state.baseStats.damagedHitPoints = payload;
+        context.setState(state);
+    }
+
+    @Action(UpdateTemporaryHitPointsAction)
+    updateTemporaryHitPointsAction(context: StateContext<allStateModel>, {payload}: UpdateTemporaryHitPointsAction) {
+        let state = context.getState();
+        state.baseStats.tempHitPoints = payload;
+        context.setState(state);
+    }
+
+    @Action(UpdateHealthAction)
+    updateHealthAction(context: StateContext<allStateModel>, {payload}: UpdateHealthAction) {
+        let state = context.getState();
+        state.baseStats.setHitPoints(payload.value, payload.fullHeal);
         context.setState(state);
     }
 }

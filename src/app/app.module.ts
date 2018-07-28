@@ -13,6 +13,7 @@ import { TopOfPageComponent } from './top-of-page/top-of-page.component';
 import { CoreStatsComponent } from './core-stats/core-stats.component';
 import { InspirationComponent } from './inspiration/inspiration.component';
 import { SkillsComponent } from './skills/skills.component';
+import { HealthComponent } from './health/health.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SkillsComponent } from './skills/skills.component';
     InspirationComponent,
     ProficiencyBonusComponent,
     SkillsComponent,
+    HealthComponent,
     EnumKeysPipe
   ],
   imports: [

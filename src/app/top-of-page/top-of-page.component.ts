@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { allStateModel, allState } from 'src/state/state';
-import { Observable } from '../../../node_modules/rxjs';
-import { Select, Store } from '../../../node_modules/@ngxs/store';
+import { allStateModel, allState } from '../../state/state';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
 import { UpdateCharacterLevelAction } from '../../state/actions/UpdateCharacterLevelAction';
 import { CharacterAlignment } from '../../state/base-stats/characterAlignment';
 import { UpdateCharacterAlignmentAction } from '../../state/actions/UpdateCharacterAlignmentAction';
