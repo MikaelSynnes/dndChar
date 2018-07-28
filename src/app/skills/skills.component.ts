@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
+import { BaseCharacterModelState } from '../../state/BaseCharacterModelState';
 import { SkillModel } from '../../state/skills/SkillsModel';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';

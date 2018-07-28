@@ -13,7 +13,8 @@ import { CoreStatsComponent } from './core-stats/core-stats.component';
 import { InspirationComponent } from './inspiration/inspiration.component';
 import { SkillsComponent } from './skills/skills.component';
 import { HealthComponent } from './health/health.component';
-import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
+import { BaseCharacterModelState } from '../state/BaseCharacterModelState';
+import { InventoryState } from '../state/inventory/inventoryState';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([BaseCharacterModelState]),
+    NgxsModule.forRoot([BaseCharacterModelState, InventoryState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],

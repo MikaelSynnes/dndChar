@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { Observable, Subscription } from 'rxjs';
-import { BaseCharacterModelState, BaseCharacterModel } from 'src/state/BaseCharacterModelState';
+import { Store } from '@ngxs/store';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-proficiency-bonus',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { BaseCharacterModelState } from 'src/state/BaseCharacterModelState';
+import { BaseCharacterModelState } from '../../state/BaseCharacterModelState';
 import { Observable } from 'rxjs';
 import { AbilityScoreBase } from '../../state/base-stats/AbilityScoreBase';
 import { AbilityScore } from '../../state/base-stats/AbilityScore';
