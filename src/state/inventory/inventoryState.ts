@@ -19,7 +19,7 @@ export class InventoryState {
 
     @Selector()
     static getAllInventory(state: InventoryStateModel) {
-        return state
+        return state;
     }
 
     @Action(UpdateInventoryAction)

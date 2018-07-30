@@ -18,8 +18,9 @@ import { InventoryState } from '../state/inventory/inventoryState';
 import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
 import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';
 import { ObjectKeysPipe } from './pipes/object-keys.pipe';
-import { CurrencyState } from '../state/currency/currencyState';
+import { CurrencyState } from '../state/currency/CurrencyState';
 import { CurrencyComponent } from './currency/currency.component';
+import { CurrencyTreasureComponent } from './currency/treasure/treasure.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CurrencyComponent } from './currency/currency.component';
     InventoryManagerComponent,
     EnumKeysPipe,
     CurrencyComponent,
+    CurrencyTreasureComponent,
     ObjectKeysPipe
   ],
   imports: [
