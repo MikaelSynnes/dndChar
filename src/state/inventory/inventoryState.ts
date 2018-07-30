@@ -1,20 +1,7 @@
+import { InventoryModel } from "./InventoryModel";
+import { InventoryStateModel } from "./InventoryStateModel";
 import { State, Selector, StateContext, Action } from "@ngxs/store";
 import { UpdateInventoryAction } from "../actions/UpdateInventoryAction";
-
-export class InventoryModel {
-    constructor(public item = "") {} 
-}
-
-export class InventoryStateModel {
-    personalityTraits: InventoryModel[];
-    ideals: InventoryModel[];
-    bonds: InventoryModel[];
-    flaws: InventoryModel[];
-    featuresAndTraits: InventoryModel[];
-    otherProficienciesAndLanguages: InventoryModel[];
-    equipment: InventoryModel[];
-    treasure: InventoryModel[];
-}
 
 @State<InventoryStateModel>({
     name: 'InventoryState',
