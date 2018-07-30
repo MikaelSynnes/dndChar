@@ -1,4 +1,4 @@
-import { PipeTransform, Pipe } from "../../../node_modules/@angular/core";
+import { PipeTransform, Pipe } from "@angular/core";
 
 @Pipe({name: 'objectKeys'})
 export class ObjectKeysPipe implements PipeTransform {

@@ -1,21 +1,21 @@
-import { UpdateAbilityScore } from './actions/UpdateAbilityScore';
+import { UpdateAbilityScore } from '../actions/UpdateAbilityScore';
 import { State, StateContext, Selector, Action } from '@ngxs/store';
-import { BaseStats } from './base-stats/BaseStatsModel';
-import { AbilityScoreBase } from './base-stats/AbilityScoreBase';
-import { AbilityScore } from './base-stats/AbilityScore';
-import { ResetStateModelAction } from './actions/ResetStateModelAction';
-import { AbilitySavingThrow } from './base-stats/AbilitySavingThrow';
-import { UpdateInspirationAction } from './actions/UpdateInspirationAction';
-import { UpdateCharacterLevelAction } from './actions/UpdateCharacterLevelAction';
-import { SkillModel } from './skills/SkillsModel';
-import { Skills } from './skills/Skills';
-import { SkillProficiencyBonus } from './base-stats/SkillProficiencyBonus';
-import { UpdateSkillModelAction } from './actions/UpdateSkillModelAction';
-import { UpdateCharacterAlignmentAction } from './actions/UpdateCharacterAlignmentAction';
-import { HealthInfoInterface } from './base-stats/HealthInfoInterface';
-import { UpdateDamageTakenAction } from './actions/UpdateDamageTakenAction';
-import { UpdateTemporaryHitPointsAction } from './actions/UpdateTemporaryHitPointsAction';
-import { UpdateHealthAction } from './actions/UpdateHealthAction';
+import { BaseStats } from './BaseStatsModel';
+import { AbilityScoreBase } from './AbilityScoreBase';
+import { AbilityScore } from './AbilityScore';
+import { ResetStateModelAction } from '../actions/ResetStateModelAction';
+import { AbilitySavingThrow } from './AbilitySavingThrow';
+import { UpdateInspirationAction } from '../actions/UpdateInspirationAction';
+import { UpdateCharacterLevelAction } from '../actions/UpdateCharacterLevelAction';
+import { SkillModel } from '../skills/SkillsModel';
+import { Skills } from '../skills/Skills';
+import { SkillProficiencyBonus } from './SkillProficiencyBonus';
+import { UpdateSkillModelAction } from '../actions/UpdateSkillModelAction';
+import { UpdateCharacterAlignmentAction } from '../actions/UpdateCharacterAlignmentAction';
+import { HealthInfoInterface } from './HealthInfoInterface';
+import { UpdateDamageTakenAction } from '../actions/UpdateDamageTakenAction';
+import { UpdateTemporaryHitPointsAction } from '../actions/UpdateTemporaryHitPointsAction';
+import { UpdateHealthAction } from '../actions/UpdateHealthAction';
 
 export class BaseCharacterModel {
     baseStats: BaseStats = new BaseStats();

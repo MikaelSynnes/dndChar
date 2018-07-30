@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "node_modules/@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { InventoryModel } from "../../../state/inventory/InventoryModel";
-import { Subject } from "../../../../node_modules/rxjs";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-inventory-generic',

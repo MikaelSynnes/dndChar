@@ -4,7 +4,7 @@ import { Select, Store } from '@ngxs/store';
 import { UpdateCharacterLevelAction } from '../../state/actions/UpdateCharacterLevelAction';
 import { CharacterAlignment } from '../../state/base-stats/characterAlignment';
 import { UpdateCharacterAlignmentAction } from '../../state/actions/UpdateCharacterAlignmentAction';
-import { BaseCharacterModelState, BaseCharacterModel } from '../../state/BaseCharacterModelState';
+import { BaseCharacterModelState, BaseCharacterModel } from '../../state/base-stats/BaseCharacterModelState';
 
 @Component({
   selector: 'app-top-of-page',

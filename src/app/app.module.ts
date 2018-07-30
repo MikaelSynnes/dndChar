@@ -13,7 +13,7 @@ import { CoreStatsComponent } from './core-stats/core-stats.component';
 import { InspirationComponent } from './inspiration/inspiration.component';
 import { SkillsComponent } from './skills/skills.component';
 import { HealthComponent } from './health/health.component';
-import { BaseCharacterModelState } from '../state/BaseCharacterModelState';
+import { BaseCharacterModelState } from '../state/base-stats/BaseCharacterModelState';
 import { InventoryState } from '../state/inventory/inventoryState';
 import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
 import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';

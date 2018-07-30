@@ -1,8 +1,8 @@
-import { Component, OnInit } from "node_modules/@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { InventoryState } from "../../../state/inventory/inventoryState";
 import { InventoryModel } from "../../../state/inventory/InventoryModel";
-import { Store, Select } from "../../../../node_modules/@ngxs/store";
-import { Observable } from "../../../../node_modules/rxjs";
+import { Store, Select } from "@ngxs/store";
+import { Observable } from "rxjs";
 import { UpdateInventoryAction } from "../../../state/actions/UpdateInventoryAction";
 
 @Component({
