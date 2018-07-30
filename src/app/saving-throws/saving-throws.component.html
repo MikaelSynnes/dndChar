@@ -1,7 +1,7 @@
 <section>
   <h2>Saving throws</h2>
   <ul>
-    <li *ngFor="let n of savingThrows;">
+    <li *ngFor="let n of savingThrows$|async;">
       <select (change)="parseValue($event.target.value, n)">
         <option *ngFor="let item of options;" [value]="item" [selected]="n.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
       </select>

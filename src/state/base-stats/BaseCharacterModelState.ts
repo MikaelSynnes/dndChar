@@ -16,6 +16,7 @@ import { HealthInfoInterface } from './HealthInfoInterface';
 import { UpdateDamageTakenAction } from '../actions/UpdateDamageTakenAction';
 import { UpdateTemporaryHitPointsAction } from '../actions/UpdateTemporaryHitPointsAction';
 import { UpdateHealthAction } from '../actions/UpdateHealthAction';
+import { UpdateAbilitySavingThrowAction } from '../actions/UpdateAbilitySavingThrow';
 
 export class BaseCharacterModel {
     baseStats: BaseStats = new BaseStats();
@@ -25,7 +26,7 @@ export class BaseCharacterModel {
 }
 
 @State<BaseCharacterModel>({
-    name: 'allStateModel',
+    name: 'BaseCharacterModelState',
     defaults: {
         baseStats: new BaseStats(),
         loggedInUser: "Test username for it needs a class later",
@@ -97,15 +98,18 @@ export class BaseCharacterModelState {
 
     @Selector()
     static getSavingThrows(state: BaseCharacterModel) {
-        let savingThrows = [];
-        let proficiency = state.baseStats.proficiencyBonus;
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency, SkillProficiencyBonus.checked));
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertice));
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
-        savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
-        return savingThrows;
+        if(state.savingThrows === undefined || state.savingThrows.length === 0) {
+            let savingThrows = [];
+            let proficiency = state.baseStats.proficiencyBonus;
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency, SkillProficiencyBonus.checked));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertice));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
+            state.savingThrows = savingThrows;
+        }
+        return state.savingThrows;
     }
 
     @Selector()
@@ -175,6 +179,14 @@ export class BaseCharacterModelState {
     updateHealthAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateHealthAction) {
         let state = context.getState();
         state.baseStats.setHitPoints(payload.value, payload.fullHeal);
+        context.setState(state);
+    }
+
+    @Action(UpdateAbilitySavingThrowAction)
+    updateAbilitySavingThrowAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateAbilitySavingThrowAction) {
+        let state = context.getState();
+        let abilityIndex = state.savingThrows.findIndex(x => x.ability.name === payload.ability.name);
+        state.savingThrows[abilityIndex] = payload;
         context.setState(state);
     }
 }

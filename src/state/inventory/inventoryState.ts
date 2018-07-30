@@ -13,7 +13,6 @@ import { UpdateInventoryAction } from "../actions/UpdateInventoryAction";
         featuresAndTraits : new Array(new InventoryModel(),new InventoryModel(),new InventoryModel()),
         otherProficienciesAndLanguages : new Array(new InventoryModel(),new InventoryModel(),new InventoryModel()),
         equipment : new Array(new InventoryModel(),new InventoryModel(),new InventoryModel()),
-        treasure : new Array(new InventoryModel(),new InventoryModel(),new InventoryModel()),
     }
 })
 export class InventoryState {

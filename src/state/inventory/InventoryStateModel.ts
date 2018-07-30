@@ -7,5 +7,4 @@ export class InventoryStateModel {
     featuresAndTraits: InventoryModel[];
     otherProficienciesAndLanguages: InventoryModel[];
     equipment: InventoryModel[];
-    treasure: InventoryModel[];
 }

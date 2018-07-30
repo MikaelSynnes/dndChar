@@ -18,6 +18,8 @@ import { InventoryState } from '../state/inventory/inventoryState';
 import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
 import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';
 import { ObjectKeysPipe } from './pipes/object-keys.pipe';
+import { CurrencyState } from '../state/currency/currencyState';
+import { CurrencyComponent } from './currency/currency.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,12 @@ import { ObjectKeysPipe } from './pipes/object-keys.pipe';
     InventoryGenericComponent,
     InventoryManagerComponent,
     EnumKeysPipe,
+    CurrencyComponent,
     ObjectKeysPipe
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([BaseCharacterModelState, InventoryState]),
+    NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
