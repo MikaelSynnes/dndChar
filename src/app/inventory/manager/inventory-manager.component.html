@@ -1,0 +1,3 @@
+<span *ngFor="let entry of inventoryState$|async|objectKeys">
+    <app-inventory-generic [title]="entry.key" [list]="entry.value" (listChange)="onListChange($event, entry.key)"></app-inventory-generic>
+</span>

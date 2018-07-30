@@ -15,6 +15,9 @@ import { SkillsComponent } from './skills/skills.component';
 import { HealthComponent } from './health/health.component';
 import { BaseCharacterModelState } from '../state/BaseCharacterModelState';
 import { InventoryState } from '../state/inventory/inventoryState';
+import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
+import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';
+import { ObjectKeysPipe } from './pipes/object-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { InventoryState } from '../state/inventory/inventoryState';
     ProficiencyBonusComponent,
     SkillsComponent,
     HealthComponent,
-    EnumKeysPipe
+    InventoryGenericComponent,
+    InventoryManagerComponent,
+    EnumKeysPipe,
+    ObjectKeysPipe
   ],
   imports: [
     BrowserModule,
