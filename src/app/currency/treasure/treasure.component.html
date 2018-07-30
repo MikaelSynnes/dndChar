@@ -5,12 +5,12 @@
     <th>Worth</th>
     <th>Currency</th>
   </tr>
-  <tr *ngFor="let item of treasure$|async; let i = index; trackBy:trackByFn">
-    <td>{{item.item}}</td>
-    <td>{{item.worth}}</td>
+  <tr *ngFor="let treasure of treasure$|async; let i = index; trackBy:trackByFn">
+    <td>{{treasure.item}}</td>
+    <td>{{treasure.worth}}</td>
     <td>
-      <select (change)="updateCurrencyType($event.target.value, item, i)">
-        <option *ngFor="let option of currencyOptions;" [value]="option"  [selected]="item.currency==CurrencyEnum[option]">{{option}}</option>
+      <select (change)="updateCurrencyType($event.target.value, treasure, i)">
+        <option *ngFor="let option of currencyOptions;" [value]="option"  [selected]="treasure.currency==CurrencyEnum[option]">{{option}}</option>
       </select>
     </td>
   </tr>

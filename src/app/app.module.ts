@@ -43,7 +43,7 @@ import { CurrencyTreasureComponent } from './currency/treasure/treasure.componen
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState]),
+    NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState], {developmentMode: true }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],

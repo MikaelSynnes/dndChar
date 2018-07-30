@@ -29,8 +29,9 @@ export class CurrencyTreasureComponent implements OnInit {
   }
  
   updateCurrencyType(value : string, treasure: TreasureModel, index: number) {
-    let tres = treasure;
+    let tres = {...treasure};
     tres.currency = CurrencyEnum[value];
+    console.log(index, tres);
     this.store.dispatch(new UpdateTreasureModelAction(tres, index));
   }
 }
