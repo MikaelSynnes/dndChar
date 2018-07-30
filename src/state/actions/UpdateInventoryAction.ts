@@ -1,4 +1,4 @@
-import { InventoryModel } from "../inventory/inventoryState";
+import { InventoryModel } from "../inventory/InventoryModel";
 
 export class UpdateInventoryAction {
     static readonly type = "[INVENTORY] update";
