@@ -119,75 +119,84 @@ export class BaseCharacterModelState {
 
     @Action(UpdateAbilityScore)
     updateAbilityScore(context: StateContext<BaseCharacterModel>, { payload }: UpdateAbilityScore) {
-        let state = context.getState();
-        let ability = state.baseStats[payload.name] as AbilityScore;
+        let state = {...context.getState()};
+        let ability = {...state.baseStats[payload.name]} as AbilityScore;
         ability.stat = payload.stat;
-        state.baseStats[payload.name] = ability;
-        context.setState(state);
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats[payload.name] = ability;
+        context.setState({...state, 
+            baseStats: baseStats});
     }
 
     @Action(ResetStateModelAction)
     resetStateModelAction(context: StateContext<BaseCharacterModel>) {
-        let state = context.getState();
-        state = new BaseCharacterModel();
-        context.setState(state);
+        context.setState(new BaseCharacterModel());
     }
 
     @Action(UpdateInspirationAction)
     updateInspirationAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateInspirationAction) {
-        let state = context.getState();
-        state.baseStats.inspiration = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.inspiration = payload;
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateCharacterLevelAction)
     updateCharacterLevelAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateCharacterLevelAction) {
-        let state = context.getState();
-        state.baseStats.level = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.level = payload;
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateSkillModelAction)
     updateSkillModelAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateSkillModelAction) {
-        let state = context.getState();
-        state.skills[payload.name] = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let skills = [...state.skills];
+        skills[payload.name] = payload;
+        context.setState({...state, skills: skills});
     }
 
     @Action(UpdateCharacterAlignmentAction)
     updateCharacterAlignmentAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateCharacterAlignmentAction) {
-        let state = context.getState();
-        state.baseStats.characterAlignment = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.characterAlignment = payload
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateDamageTakenAction)
     updateDamageTakenAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateDamageTakenAction) {
-        let state = context.getState();
-        state.baseStats.damagedHitPoints = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.damagedHitPoints = payload;
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateTemporaryHitPointsAction)
     updateTemporaryHitPointsAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateTemporaryHitPointsAction) {
-        let state = context.getState();
-        state.baseStats.tempHitPoints = payload;
-        context.setState(state);
+        let state = {...context.getState()};
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.tempHitPoints = payload
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateHealthAction)
     updateHealthAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateHealthAction) {
-        let state = context.getState();
+        let state = {...context.getState()};
         state.baseStats.setHitPoints(payload.value, payload.fullHeal);
-        context.setState(state);
+        let baseStats = Object.assign(new BaseStats(), state.baseStats);
+        baseStats.setHitPoints(payload.value, payload.fullHeal);
+        context.setState({...state, baseStats: baseStats});
     }
 
     @Action(UpdateAbilitySavingThrowAction)
     updateAbilitySavingThrowAction(context: StateContext<BaseCharacterModel>, { payload }: UpdateAbilitySavingThrowAction) {
-        let state = context.getState();
+        let state = {...context.getState()};
         let abilityIndex = state.savingThrows.findIndex(x => x.ability.name === payload.ability.name);
-        state.savingThrows[abilityIndex] = payload;
-        context.setState(state);
+        let savingThrows = [...state.savingThrows];
+        savingThrows[abilityIndex] = payload;
+        context.setState({...state, savingThrows: savingThrows});
     }
 }
 

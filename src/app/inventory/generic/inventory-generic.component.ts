@@ -18,7 +18,7 @@ export class InventoryGenericComponent implements OnInit {
   }
 
   onTextChange(value: string, index: number) {
-    let local = this.list;
+    let local = [...this.list];
     local[index] = new InventoryModel(value);
 
     //Check if last element has value, if not create a new last element.
@@ -30,7 +30,7 @@ export class InventoryGenericComponent implements OnInit {
   }
 
   addNewLineOfInventory() {
-    let local = this.list;
+    let local = [...this.list];
     local.push(new InventoryModel());
     this.listChange.emit(local);
   }

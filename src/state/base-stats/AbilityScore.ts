@@ -1,8 +1,8 @@
 import { abilityScoreName } from "./abilityScoreName";
 // Encapsulation class for a ability score to keep track of it and the bonus it might have.
 export class AbilityScore {
-    private _coreStat: number = 8;
-    private _statBonus: number = 0;
+    public _coreStat: number = 8;
+    public _statBonus: number = 0;
     constructor(public name: abilityScoreName) { }
 
     public get stat() {

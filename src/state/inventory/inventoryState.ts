@@ -24,8 +24,9 @@ export class InventoryState {
 
     @Action(UpdateInventoryAction)
     updateInventoryAction(context: StateContext<InventoryStateModel>, {payload, inventoryName}: UpdateInventoryAction) {
-        let state = context.getState();
+        let state = {...context.getState()};
+        state[inventoryName] = {...state[inventoryName]};
         state[inventoryName] = payload;
-        context.setState(state);
+        context.setState({...state});
     }
 }

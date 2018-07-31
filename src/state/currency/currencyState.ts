@@ -54,9 +54,11 @@ export class CurrencyState {
   @Action(UpdateTreasureModelAction)
   updateTreasureModelAction(context: StateContext<CurrencyStateModel>, {payload, index}: UpdateTreasureModelAction) {
     let state = {...context.getState()};
-    state.treasure = {...state.treasure};
+    state.treasure = [...state.treasure];
     state.treasure[index] = payload;
-    context.setState({...state});
+    context.setState({...state, treasure : [
+      ...state.treasure
+    ]});
   }
 
   @Action(UpdateCurrencyAction)
