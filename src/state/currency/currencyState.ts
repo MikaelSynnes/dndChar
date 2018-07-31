@@ -56,9 +56,7 @@ export class CurrencyState {
     let state = {...context.getState()};
     state.treasure = [...state.treasure];
     state.treasure[index] = payload;
-    context.setState({...state, treasure : [
-      ...state.treasure
-    ]});
+    context.patchState({treasure: state.treasure});
   }
 
   @Action(UpdateCurrencyAction)

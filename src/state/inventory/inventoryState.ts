@@ -27,6 +27,6 @@ export class InventoryState {
         let state = {...context.getState()};
         state[inventoryName] = {...state[inventoryName]};
         state[inventoryName] = payload;
-        context.setState({...state});
+        context.patchState(state);
     }
 }

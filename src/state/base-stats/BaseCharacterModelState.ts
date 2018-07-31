@@ -118,8 +118,7 @@ export class BaseCharacterModelState {
         ability.stat = payload.stat;
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats[payload.name] = ability;
-        context.setState({...state, 
-            baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(ResetStateModelAction)
@@ -132,7 +131,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.inspiration = payload;
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateCharacterLevelAction)
@@ -140,7 +139,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.level = payload;
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateSkillModelAction)
@@ -148,7 +147,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let skills = [...state.skills];
         skills[payload.name] = payload;
-        context.setState({...state, skills: skills});
+        context.patchState({skills: skills});
     }
 
     @Action(UpdateCharacterAlignmentAction)
@@ -156,7 +155,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.characterAlignment = payload
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateDamageTakenAction)
@@ -164,7 +163,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.damagedHitPoints = payload;
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateTemporaryHitPointsAction)
@@ -172,7 +171,7 @@ export class BaseCharacterModelState {
         let state = {...context.getState()};
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.tempHitPoints = payload
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateHealthAction)
@@ -181,7 +180,7 @@ export class BaseCharacterModelState {
         state.baseStats.setHitPoints(payload.value, payload.fullHeal);
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats.setHitPoints(payload.value, payload.fullHeal);
-        context.setState({...state, baseStats: baseStats});
+        context.patchState({baseStats: baseStats});
     }
 
     @Action(UpdateAbilitySavingThrowAction)
@@ -190,7 +189,7 @@ export class BaseCharacterModelState {
         let abilityIndex = state.savingThrows.findIndex(x => x.ability.name === payload.ability.name);
         let savingThrows = [...state.savingThrows];
         savingThrows[abilityIndex] = payload;
-        context.setState({...state, savingThrows: savingThrows});
+        context.patchState({savingThrows: savingThrows});
     }
 }
 
