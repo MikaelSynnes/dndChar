@@ -18,6 +18,8 @@ import { UpdateTemporaryHitPointsAction } from '../actions/UpdateTemporaryHitPoi
 import { UpdateHealthAction } from '../actions/UpdateHealthAction';
 import { UpdateAbilitySavingThrowAction } from '../actions/UpdateAbilitySavingThrow';
 import { BaseCharacterModel } from './BaseCharacterModel';
+import { SetupSkillsAction } from 'src/state/actions/SetupSkillsAction';
+import { SetupSavingThrowsAction } from '../actions/SetupSavingThrowsAction';
 
 @State<BaseCharacterModel>({
     name: 'BaseCharacterModelState',
@@ -64,45 +66,11 @@ export class BaseCharacterModelState {
 
     @Selector()
     static getSkills(state: BaseCharacterModel) {
-        if (state.skills === undefined || state.skills.length === 0) {
-            let skills: SkillModel[] = [];
-            let proficiency = state.baseStats.proficiencyBonus;
-            skills.push(new SkillModel(Skills.acrobatics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.none));
-            skills.push(new SkillModel(Skills.animalHandling, state.baseStats.wisdom, proficiency, SkillProficiencyBonus.half));
-            skills.push(new SkillModel(Skills.arcana, state.baseStats.intelligence, proficiency, SkillProficiencyBonus.checked));
-            skills.push(new SkillModel(Skills.athletics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.expertice));
-            skills.push(new SkillModel(Skills.deception, state.baseStats.charisma, proficiency));
-            skills.push(new SkillModel(Skills.history, state.baseStats.intelligence, proficiency));
-            skills.push(new SkillModel(Skills.insight, state.baseStats.wisdom, proficiency));
-            skills.push(new SkillModel(Skills.intimidation, state.baseStats.charisma, proficiency));
-            skills.push(new SkillModel(Skills.investigation, state.baseStats.intelligence, proficiency));
-            skills.push(new SkillModel(Skills.medicine, state.baseStats.wisdom, proficiency));
-            skills.push(new SkillModel(Skills.nature, state.baseStats.intelligence, proficiency));
-            skills.push(new SkillModel(Skills.perception, state.baseStats.wisdom, proficiency));
-            skills.push(new SkillModel(Skills.performance, state.baseStats.charisma, proficiency));
-            skills.push(new SkillModel(Skills.persuasion, state.baseStats.charisma, proficiency));
-            skills.push(new SkillModel(Skills.religion, state.baseStats.intelligence, proficiency));
-            skills.push(new SkillModel(Skills.sleightOfHand, state.baseStats.dexterity, proficiency));
-            skills.push(new SkillModel(Skills.stealth, state.baseStats.dexterity, proficiency));
-            skills.push(new SkillModel(Skills.survival, state.baseStats.wisdom, proficiency));
-            state.skills = skills;
-        }
         return state.skills;
     }
 
     @Selector()
     static getSavingThrows(state: BaseCharacterModel) {
-        if(state.savingThrows === undefined || state.savingThrows.length === 0) {
-            let savingThrows = [];
-            let proficiency = state.baseStats.proficiencyBonus;
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency, SkillProficiencyBonus.checked));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertice));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
-            state.savingThrows = savingThrows;            
-        }
         return state.savingThrows;
     }
 
@@ -190,6 +158,53 @@ export class BaseCharacterModelState {
         let savingThrows = [...state.savingThrows];
         savingThrows[abilityIndex] = payload;
         context.patchState({savingThrows: savingThrows});
+    }
+
+    @Action(SetupSkillsAction)
+    setupSkillsAction(context: StateContext<BaseCharacterModel>) {
+        let state = {...context.getState()};
+        let skills: SkillModel[] = [];
+        if (state.skills === undefined || state.skills.length === 0) {            
+            let proficiency = state.baseStats.proficiencyBonus;
+            skills.push(new SkillModel(Skills.acrobatics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.none));
+            skills.push(new SkillModel(Skills.animalHandling, state.baseStats.wisdom, proficiency, SkillProficiencyBonus.half));
+            skills.push(new SkillModel(Skills.arcana, state.baseStats.intelligence, proficiency, SkillProficiencyBonus.checked));
+            skills.push(new SkillModel(Skills.athletics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.expertice));
+            skills.push(new SkillModel(Skills.deception, state.baseStats.charisma, proficiency));
+            skills.push(new SkillModel(Skills.history, state.baseStats.intelligence, proficiency));
+            skills.push(new SkillModel(Skills.insight, state.baseStats.wisdom, proficiency));
+            skills.push(new SkillModel(Skills.intimidation, state.baseStats.charisma, proficiency));
+            skills.push(new SkillModel(Skills.investigation, state.baseStats.intelligence, proficiency));
+            skills.push(new SkillModel(Skills.medicine, state.baseStats.wisdom, proficiency));
+            skills.push(new SkillModel(Skills.nature, state.baseStats.intelligence, proficiency));
+            skills.push(new SkillModel(Skills.perception, state.baseStats.wisdom, proficiency));
+            skills.push(new SkillModel(Skills.performance, state.baseStats.charisma, proficiency));
+            skills.push(new SkillModel(Skills.persuasion, state.baseStats.charisma, proficiency));
+            skills.push(new SkillModel(Skills.religion, state.baseStats.intelligence, proficiency));
+            skills.push(new SkillModel(Skills.sleightOfHand, state.baseStats.dexterity, proficiency));
+            skills.push(new SkillModel(Skills.stealth, state.baseStats.dexterity, proficiency));
+            skills.push(new SkillModel(Skills.survival, state.baseStats.wisdom, proficiency));
+
+            context.patchState({skills: skills})
+        }
+    }
+
+    @Action(SetupSavingThrowsAction)
+    setupSavingThrowsAction(context: StateContext<BaseCharacterModel>) {
+        let state = {...context.getState()};
+        
+        if(state.savingThrows === undefined || state.savingThrows.length === 0) {
+            let savingThrows = [];
+            let proficiency = state.baseStats.proficiencyBonus;
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency, SkillProficiencyBonus.checked));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertice));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
+            
+            context.patchState({savingThrows: savingThrows});
+        }
     }
 }
 

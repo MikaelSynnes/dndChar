@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store,  Select } from '@ngxs/store';
 import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
 import { Observable } from 'rxjs';
 import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
 import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
 import { UpdateAbilitySavingThrowAction } from '../../state/actions/UpdateAbilitySavingThrow';
+import { SetupSavingThrowsAction } from '../../state/actions/SetupSavingThrowsAction';
 
 @Component({
   selector: 'app-saving-throws',
@@ -21,11 +22,12 @@ export class SavingThrowsComponent implements OnInit {
   }
 
   parseValue(value : string, ability: AbilitySavingThrow) {
-    ability.proficiencyBonus = SkillProficiencyBonus[value];
-    this.store.dispatch(new UpdateAbilitySavingThrowAction(ability));
+    let update = Object.assign(new AbilitySavingThrow(ability.ability, ability.proficiency), ability);
+    update.proficiencyBonus = SkillProficiencyBonus[value];
+    this.store.dispatch(new UpdateAbilitySavingThrowAction(update));
   }
 
   ngOnInit() {
+    this.store.dispatch(new SetupSavingThrowsAction());
   }
-
 }
