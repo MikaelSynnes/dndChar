@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { BaseCharacterModelState, BaseCharacterModel } from '../../state/base-stats/BaseCharacterModelState';
+import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
 import { Observable } from 'rxjs';
 import { UpdateInspirationAction } from '../../state/actions/UpdateInspirationAction';
+import { BaseCharacterModel } from 'src/state/base-stats/BaseCharacterModel';
 
 @Component({
   selector: 'app-inspiration',

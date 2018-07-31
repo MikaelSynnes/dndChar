@@ -1,6 +1,6 @@
 <p>Skills</p>
 <ul>
-  <li *ngFor="let skill of skills">
+  <li *ngFor="let skill of skills$|async">
     <select (change)="parseValue($event.target.value, skill)">
       <option *ngFor="let item of options;" [value]="item" [selected]="skill.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
     </select>

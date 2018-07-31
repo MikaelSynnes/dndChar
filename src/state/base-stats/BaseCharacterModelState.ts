@@ -17,13 +17,7 @@ import { UpdateDamageTakenAction } from '../actions/UpdateDamageTakenAction';
 import { UpdateTemporaryHitPointsAction } from '../actions/UpdateTemporaryHitPointsAction';
 import { UpdateHealthAction } from '../actions/UpdateHealthAction';
 import { UpdateAbilitySavingThrowAction } from '../actions/UpdateAbilitySavingThrow';
-
-export class BaseCharacterModel {
-    baseStats: BaseStats = new BaseStats();
-    loggedInUser: string = "Test username for it needs a class later";
-    savingThrows: Array<AbilitySavingThrow>;
-    skills: Array<SkillModel>;
-}
+import { BaseCharacterModel } from './BaseCharacterModel';
 
 @State<BaseCharacterModel>({
     name: 'BaseCharacterModelState',
@@ -107,7 +101,7 @@ export class BaseCharacterModelState {
             savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
-            state.savingThrows = savingThrows;
+            state.savingThrows = savingThrows;            
         }
         return state.savingThrows;
     }
