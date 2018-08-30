@@ -21,6 +21,7 @@ import { ObjectKeysPipe } from './pipes/object-keys.pipe';
 import { CurrencyState } from '../state/currency/CurrencyState';
 import { CurrencyComponent } from './currency/currency.component';
 import { CurrencyTreasureComponent } from './currency/treasure/treasure.component';
+import { ServerState } from '../state/server-state/serverState';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { CurrencyTreasureComponent } from './currency/treasure/treasure.componen
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState], {developmentMode: true }),
+    NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState, ServerState], {developmentMode: true }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
