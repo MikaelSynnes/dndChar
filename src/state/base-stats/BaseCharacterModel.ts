@@ -4,7 +4,6 @@ import { SkillModel } from "src/state/skills/SkillsModel";
 
 export class BaseCharacterModel {
   baseStats: BaseStats = new BaseStats();
-  loggedInUser: string = "Test username for it needs a class later";
   savingThrows: Array<AbilitySavingThrow>;
   skills: Array<SkillModel>;
 }

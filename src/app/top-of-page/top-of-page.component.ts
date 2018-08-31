@@ -6,6 +6,7 @@ import { CharacterAlignment } from '../../state/base-stats/characterAlignment';
 import { UpdateCharacterAlignmentAction } from '../../state/actions/UpdateCharacterAlignmentAction';
 import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
 import { BaseCharacterModel } from 'src/state/base-stats/BaseCharacterModel';
+import { ServerState } from '../../state/server-state/serverState';
 
 @Component({
   selector: 'app-top-of-page',
@@ -15,7 +16,7 @@ import { BaseCharacterModel } from 'src/state/base-stats/BaseCharacterModel';
 export class TopOfPageComponent implements OnInit {
   CharacterAlignment = CharacterAlignment;
   @Select(BaseCharacterModelState.getBaseStats) baseStats$: Observable<BaseCharacterModel>;
-  @Select(BaseCharacterModelState.getPlayerName) playerName$: Observable<string>;
+  @Select(ServerState.getAppUserId) playerName$: Observable<string>;
 
   charAlignments: string[];
 

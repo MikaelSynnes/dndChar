@@ -15,4 +15,9 @@ export class ServerState {
         return state;
     }
 
+    @Selector()
+    static getAppUserId(state: ServerStateModel) {
+        return state.appUserId;
+    }
+
 }

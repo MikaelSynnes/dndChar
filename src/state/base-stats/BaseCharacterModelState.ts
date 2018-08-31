@@ -25,7 +25,6 @@ import { SetupSavingThrowsAction } from '../actions/SetupSavingThrowsAction';
     name: 'BaseCharacterModelState',
     defaults: {
         baseStats: new BaseStats(),
-        loggedInUser: "Test username for it needs a class later",
         savingThrows: [],
         skills: [],
     }
@@ -57,11 +56,6 @@ export class BaseCharacterModelState {
     @Selector()
     static getBaseStats(state: BaseCharacterModel) {
         return state.baseStats;
-    }
-
-    @Selector()
-    static getPlayerName(state: BaseCharacterModel) {
-        return state.loggedInUser;
     }
 
     @Selector()
