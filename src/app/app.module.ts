@@ -14,14 +14,14 @@ import { InspirationComponent } from './inspiration/inspiration.component';
 import { SkillsComponent } from './skills/skills.component';
 import { HealthComponent } from './health/health.component';
 import { BaseCharacterModelState } from '../state/base-stats/BaseCharacterModelState';
-import { InventoryState } from '../state/inventory/inventoryState';
 import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
 import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';
 import { ObjectKeysPipe } from './pipes/object-keys.pipe';
-import { CurrencyState } from '../state/currency/CurrencyState';
 import { CurrencyComponent } from './currency/currency.component';
 import { CurrencyTreasureComponent } from './currency/treasure/treasure.component';
-import { ServerState } from '../state/server-state/serverState';
+import { InventoryState } from 'src/state/inventory/inventoryState';
+import { CurrencyState } from 'src/state/currency/CurrencyState';
+import { ServerState } from 'src/state/server-state/serverState';
 
 @NgModule({
   declarations: [
