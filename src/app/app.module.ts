@@ -22,11 +22,13 @@ import { CurrencyTreasureComponent } from './currency/treasure/treasure.componen
 import { InventoryState } from 'src/state/inventory/inventoryState';
 import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
+import { PassivePerceptionComponent } from './passive-perception/passive-perception.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CapitalizePipe,
+    PassivePerceptionComponent,
     ProficiencyBonusComponent,
     SavingThrowsComponent,
     TopOfPageComponent,
