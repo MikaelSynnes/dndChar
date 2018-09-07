@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
@@ -26,6 +26,9 @@ import { ServerState } from 'src/state/server-state/serverState';
 import { PassivePerceptionComponent } from './passive-perception/passive-perception.component';
 import { ServerCommunicationService } from './services/server-communication.service';
 
+// Noop handler for factory function
+export function noop() { return function() {}; };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,17 +48,22 @@ import { ServerCommunicationService } from './services/server-communication.serv
     CurrencyComponent,
     CurrencyTreasureComponent,
     ObjectKeysPipe,
-    
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState, ServerState], {developmentMode: true }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
-    HttpClientModule,
-    
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: noop,
+      deps: [ServerCommunicationService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

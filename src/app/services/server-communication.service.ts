@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
 import { HttpClient } from '@angular/common/http';
+import { Store, Actions } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
-import { Store } from '@ngxs/store';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ServerCommunicationService {
-  constructor(private actions$: Actions, private httpClient: HttpClient, private store: Store){
+  constructor(private httpClient: HttpClient, private store: Store, private actions: Actions) {
+    this.actions.pipe().subscribe(({payload}) => {
+      console.log(payload);
+    })
   }
 
-  @Effect({dispatch: false})
-  sendToServerActions$ = this.actions$.pipe(tap(action => {
-    console.log(action);
-  }))
+  public async sendToServer(action: any) {
+    this.httpClient.patch("", action);
+  }
 }
