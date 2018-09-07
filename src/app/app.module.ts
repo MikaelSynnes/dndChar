@@ -26,9 +26,6 @@ import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
 import { ServerCommunicationService } from 'src/app/services/server-communication.service';
 
-// Noop handler for factory function
-export function noop() { return function() {}; };
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +54,8 @@ export function noop() { return function() {}; };
   ],
   providers: [
     {
-      provide: APP_INITIALIZER,
-      useFactory: noop,
+      provide: APP_INITIALIZER,      
+      useClass: ServerCommunicationService,
       deps: [ServerCommunicationService],
       multi: true
     }
