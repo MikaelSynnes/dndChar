@@ -9,7 +9,7 @@ import { CurrencyStateModel } from '../../state/currency/CurrencyStateModel';
 @Component({
   selector: 'app-currency',
   templateUrl: './currency.component.html',
-  styleUrls: ['./currency.component.css']
+  styleUrls: ['./currency.component.scss']
 })
 export class CurrencyComponent implements OnInit {
   @Select(CurrencyState.getAll) currencyState$: Observable<CurrencyState>;

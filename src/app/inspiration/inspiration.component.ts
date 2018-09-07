@@ -8,7 +8,7 @@ import { BaseCharacterModel } from 'src/state/base-stats/BaseCharacterModel';
 @Component({
   selector: 'app-inspiration',
   templateUrl: './inspiration.component.html',
-  styleUrls: ['./inspiration.component.css']
+  styleUrls: ['./inspiration.component.scss']
 })
 export class InspirationComponent implements OnInit {
   @Select(BaseCharacterModelState.getBaseStats) baseStats$: Observable<BaseCharacterModel>;

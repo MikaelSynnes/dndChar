@@ -9,7 +9,7 @@ import { UpdateAbilityScore } from '../../state/actions/UpdateAbilityScore';
 @Component({
   selector: 'app-core-stats',
   templateUrl: './core-stats.component.html',
-  styleUrls: ['./core-stats.component.css']
+  styleUrls: ['./core-stats.component.scss']
 })
 export class CoreStatsComponent implements OnInit {
   @Select(BaseCharacterModelState.getAbilityScores) abilityScoresModel$: Observable<AbilityScoreBase>;

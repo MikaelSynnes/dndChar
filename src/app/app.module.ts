@@ -44,7 +44,8 @@ import { ServerCommunicationService } from './services/server-communication.serv
     EnumKeysPipe,
     CurrencyComponent,
     CurrencyTreasureComponent,
-    ObjectKeysPipe
+    ObjectKeysPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,7 @@ import { ServerCommunicationService } from './services/server-communication.serv
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     HttpClientModule,
-    ServerCommunicationService
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

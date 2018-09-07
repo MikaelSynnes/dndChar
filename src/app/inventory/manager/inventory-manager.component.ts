@@ -8,7 +8,7 @@ import { UpdateInventoryAction } from "../../../state/actions/UpdateInventoryAct
 @Component({
   selector: 'app-inventory-manager',
   templateUrl: './inventory-manager.component.html',
-  styleUrls: ['./inventory-manager.component.css']
+  styleUrls: ['./inventory-manager.component.scss']
 })
 export class InventoryManagerComponent implements OnInit {
   @Select(InventoryState) inventoryState$ : Observable<InventoryState>;

@@ -5,7 +5,7 @@ import { Subject } from "rxjs";
 @Component({
   selector: 'app-inventory-generic',
   templateUrl: './inventory-generic.component.html',
-  styleUrls: ['./inventory-generic.component.css']
+  styleUrls: ['./inventory-generic.component.scss']
 })
 export class InventoryGenericComponent implements OnInit {
   @Input() title: string;

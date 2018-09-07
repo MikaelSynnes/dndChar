@@ -9,7 +9,7 @@ import { UpdateTreasureModelAction } from '../../../state/actions/UpdateTreasure
 @Component({
   selector: 'app-currency-treasure',
   templateUrl: './treasure.component.html',
-  styleUrls: ['./treasure.component.css']
+  styleUrls: ['./treasure.component.scss']
 })
 export class CurrencyTreasureComponent implements OnInit {
   @Select(CurrencyState.getTreasure) treasure$: Observable<TreasureModel[]>;

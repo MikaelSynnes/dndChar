@@ -10,7 +10,7 @@ import { SetupSavingThrowsAction } from '../../state/actions/SetupSavingThrowsAc
 @Component({
   selector: 'app-saving-throws',
   templateUrl: './saving-throws.component.html',
-  styleUrls: ['./saving-throws.component.css']
+  styleUrls: ['./saving-throws.component.scss']
 })
 export class SavingThrowsComponent implements OnInit {
   @Select(BaseCharacterModelState.getSavingThrows)savingThrows$: Observable<AbilitySavingThrow[]>;

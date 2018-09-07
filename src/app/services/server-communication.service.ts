@@ -5,11 +5,10 @@ import { tap } from 'rxjs/operators';
 import { Store } from '@ngxs/store';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServerCommunicationService {
   constructor(private actions$: Actions, private httpClient: HttpClient, private store: Store){
-
   }
 
   @Effect({dispatch: false})

@@ -10,7 +10,7 @@ import { SetupSkillsAction } from 'src/state/actions/SetupSkillsAction';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
   @Select(BaseCharacterModelState.getSkills) skills$: Observable<SkillModel>;
