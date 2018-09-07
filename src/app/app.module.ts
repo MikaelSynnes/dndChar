@@ -2,29 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
-import { AppComponent } from './app.component';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
-import { EnumKeysPipe } from './pipes/enum-keys.pipe';
-import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
-import { TopOfPageComponent } from './top-of-page/top-of-page.component';
-import { CoreStatsComponent } from './core-stats/core-stats.component';
-import { InspirationComponent } from './inspiration/inspiration.component';
-import { SkillsComponent } from './skills/skills.component';
-import { HealthComponent } from './health/health.component';
-import { BaseCharacterModelState } from '../state/base-stats/BaseCharacterModelState';
-import { InventoryGenericComponent } from './inventory/generic/inventory-generic.component';
-import { InventoryManagerComponent } from './inventory/manager/inventory-manager.component';
-import { ObjectKeysPipe } from './pipes/object-keys.pipe';
-import { CurrencyComponent } from './currency/currency.component';
-import { CurrencyTreasureComponent } from './currency/treasure/treasure.component';
+import { AppComponent } from 'src/app/app.component';
+import { CapitalizePipe } from 'src/app/pipes/capitalize.pipe';
+import { PassivePerceptionComponent } from 'src/app/passive-perception/passive-perception.component';
+import { ProficiencyBonusComponent } from 'src/app/proficiency-bonus/proficiency-bonus.component';
+import { SavingThrowsComponent } from 'src/app/saving-throws/saving-throws.component';
+import { TopOfPageComponent } from 'src/app/top-of-page/top-of-page.component';
+import { CoreStatsComponent } from 'src/app/core-stats/core-stats.component';
+import { InspirationComponent } from 'src/app/inspiration/inspiration.component';
+import { SkillsComponent } from 'src/app/skills/skills.component';
+import { HealthComponent } from 'src/app/health/health.component';
+import { InventoryGenericComponent } from 'src/app/inventory/generic/inventory-generic.component';
+import { InventoryManagerComponent } from 'src/app/inventory/manager/inventory-manager.component';
+import { EnumKeysPipe } from 'src/app/pipes/enum-keys.pipe';
+import { CurrencyComponent } from 'src/app/currency/currency.component';
+import { CurrencyTreasureComponent } from 'src/app/currency/treasure/treasure.component';
+import { ObjectKeysPipe } from 'src/app/pipes/object-keys.pipe';
+import { BaseCharacterModelState } from 'src/state/base-stats/BaseCharacterModelState';
 import { InventoryState } from 'src/state/inventory/inventoryState';
 import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
-import { PassivePerceptionComponent } from './passive-perception/passive-perception.component';
-import { ServerCommunicationService } from './services/server-communication.service';
+import { ServerCommunicationService } from 'src/app/services/server-communication.service';
 
 // Noop handler for factory function
 export function noop() { return function() {}; };
@@ -39,7 +39,6 @@ export function noop() { return function() {}; };
     TopOfPageComponent,
     CoreStatsComponent,
     InspirationComponent,
-    ProficiencyBonusComponent,
     SkillsComponent,
     HealthComponent,
     InventoryGenericComponent,
