@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -23,6 +24,7 @@ import { InventoryState } from 'src/state/inventory/inventoryState';
 import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
 import { PassivePerceptionComponent } from './passive-perception/passive-perception.component';
+import { ServerCommunicationService } from './services/server-communication.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { PassivePerceptionComponent } from './passive-perception/passive-percept
     BrowserModule,
     NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState, ServerState], {developmentMode: true }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot()
+    NgxsLoggerPluginModule.forRoot(),
+    HttpClientModule,
+    ServerCommunicationService
   ],
   providers: [],
   bootstrap: [AppComponent]
