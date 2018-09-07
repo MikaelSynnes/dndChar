@@ -53,14 +53,6 @@ import { ServerCommunicationService } from 'src/app/services/server-communicatio
     NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [
-    /*
-    {
-      provide: APP_INITIALIZER,      
-      useClass: ServerCommunicationService,
-      deps: [ServerCommunicationService],
-      multi: true
-    }
-    */
   ],
   bootstrap: [AppComponent]
 })
