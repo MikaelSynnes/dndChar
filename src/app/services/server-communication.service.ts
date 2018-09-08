@@ -8,7 +8,13 @@ import { tap } from 'rxjs/operators';
 })
 export class ServerCommunicationService {
   constructor(private httpClient: HttpClient, private store: Store, private actions: Actions) {
-    console.error("E");
+    actions.subscribe((payload) => {
+      if(payload.status !== "SUCCESSFUL") {
+        return;
+      }      
+      console.log(payload);
+      //debugger;
+    })
   }
 
   public async sendToServer(action: any) {
