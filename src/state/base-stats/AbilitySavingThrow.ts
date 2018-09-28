@@ -9,7 +9,12 @@ export class AbilitySavingThrow {
         if(this.proficiencyBonus == SkillProficiencyBonus.none) {
             return this.ability.getAbilityScoreModifier();
         }
-        let bonus = this.ability.getAbilityScoreModifier() + Math.floor(+this.proficiencyBonus * this._proficiencyScore);
-        return Math.floor(bonus);
+        try {
+            let bonus = this.ability.getAbilityScoreModifier() + Math.floor(+this.proficiencyBonus * this._proficiencyScore);
+            return Math.floor(bonus);            
+        } catch (error) {
+            //debugger;
+            
+        }
     }
 }

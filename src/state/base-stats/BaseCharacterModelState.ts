@@ -20,6 +20,7 @@ import { UpdateAbilitySavingThrowAction } from '../actions/UpdateAbilitySavingTh
 import { BaseCharacterModel } from './BaseCharacterModel';
 import { SetupSkillsAction } from 'src/state/actions/SetupSkillsAction';
 import { SetupSavingThrowsAction } from '../actions/SetupSavingThrowsAction';
+import { abilityScoreName } from './abilityScoreName';
 
 @State<BaseCharacterModel>({
     name: 'BaseCharacterModelState',
@@ -81,6 +82,27 @@ export class BaseCharacterModelState {
         let baseStats = Object.assign(new BaseStats(), state.baseStats);
         baseStats[payload.name] = ability;
         context.patchState({baseStats: baseStats});
+
+        let abilityScore = new AbilityScore(ability.name);
+        abilityScore.stat = ability.stat;
+        abilityScore._statBonus = ability._statBonus
+        //Update saving throw.        
+        let savingThrowIndex = state.savingThrows.findIndex(x => x.ability.name === payload.name);
+        let savingThrows = [...state.savingThrows];
+        let savingThrow = new AbilitySavingThrow(abilityScore, state.baseStats.proficiencyBonus, savingThrows[savingThrowIndex].proficiencyBonus);
+        savingThrows[savingThrowIndex] = savingThrow;
+        context.patchState({savingThrows: savingThrows});
+        //Update skills
+        let skills = [...state.skills];
+        
+        for (let index = 0; index < skills.length; index++) {
+            const element = skills[index];
+            if(element.coreStat.name == ability.name){
+                let skill = new SkillModel(element.name, abilityScore, state.baseStats.proficiencyBonus, element.proficiencyBonus);
+                skills[index] = skill;
+            }
+        }
+        context.patchState({skills: skills});
     }
 
     @Action(ResetStateModelAction)

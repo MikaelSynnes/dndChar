@@ -27,7 +27,6 @@ export class SkillsComponent implements OnInit {
 
   parseValue(value : string, ability: SkillModel) {
     let update = new SkillModel(ability.name, ability.coreStat, ability.proficiencyScore, SkillProficiencyBonus[value]);
-    
     this.store.dispatch(new UpdateSkillModelAction(update));
   }
 
