@@ -24,7 +24,6 @@ import { BaseCharacterModelState } from 'src/state/base-stats/BaseCharacterModel
 import { InventoryState } from 'src/state/inventory/inventoryState';
 import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
-import { ServerCommunicationService } from 'src/app/services/server-communication.service';
 
 @NgModule({
   declarations: [
