@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output} from "@angular/core";
 import { InventoryModel } from "../../../state/inventory/InventoryModel";
-import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-inventory-generic',
@@ -11,10 +10,15 @@ export class InventoryGenericComponent implements OnInit {
   @Input() title: string;
   @Input() list: InventoryModel[];
   @Output() listChange = new EventEmitter();
-
+  
   constructor() { }
 
   ngOnInit(): void {
+    if(this.list[this.list.length-1].item !== ""){
+      setTimeout(()=> {
+        this.addNewLineOfInventory();
+      },0);
+    }
   }
 
   onTextChange(value: string, index: number) {
@@ -26,16 +30,16 @@ export class InventoryGenericComponent implements OnInit {
       local.push(new InventoryModel());
     }
   
-    this.listChange.emit(local);
+    this.listChange.emit({local, index});
   }
 
   addNewLineOfInventory() {
     let local = [...this.list];
     local.push(new InventoryModel());
-    this.listChange.emit(local);
+    this.listChange.emit({local, undefined});
   }
 
-  trackByFn(index: any, item: any) {
+  trackByFn(index: any, id: any) {
     return index;
  }
 }

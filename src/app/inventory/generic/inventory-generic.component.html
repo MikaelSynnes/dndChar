@@ -1,3 +1,5 @@
 <h3>Title: {{title}}</h3>
-<input *ngFor="let item of list; let i = index; trackBy:trackByFn" type="text" class="form-control" (input)="onTextChange($event.target.value, i)" [value]="item.item">
-<button (click)="addNewLineOfInventory()">Add a new line</button>
+<input *ngFor="let item of list; let i = index; trackBy:trackByFn"
+        type="text" class="form-control"
+        (keyup)="onTextChange($event.target.value, i)" [value]="item.item">
+<!--<button (click)="addNewLineOfInventory()">Add a new line</button>-->

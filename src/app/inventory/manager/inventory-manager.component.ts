@@ -19,8 +19,10 @@ export class InventoryManagerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onListChange(event: InventoryModel[], entry: string) {
-    this.store.dispatch(new UpdateInventoryAction(event, entry));
+  onListChange(event: any, entry: string) {
+    console.log(event);
+    //Event is of type {local: InventoryModel[], index: number}
+    this.store.dispatch(new UpdateInventoryAction(event.local, entry, event.index));
   }
 
 }

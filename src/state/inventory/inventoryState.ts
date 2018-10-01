@@ -23,10 +23,18 @@ export class InventoryState {
     }
 
     @Action(UpdateInventoryAction)
-    updateInventoryAction(context: StateContext<InventoryStateModel>, {payload, inventoryName}: UpdateInventoryAction) {
+    updateInventoryAction(context: StateContext<InventoryStateModel>, {payload, inventoryName, index}: UpdateInventoryAction) {
         let state = {...context.getState()};
-        state[inventoryName] = {...state[inventoryName]};
-        state[inventoryName] = payload;
+        if(index == undefined){
+            state[inventoryName] = {...state[inventoryName]};
+            state[inventoryName] = payload;
+        } else {
+            state[inventoryName] = {...state[inventoryName]};
+            //state[inventoryName[index]] = payload[index];
+            //state[inventoryName] = payload;
+            state[inventoryName][index] = payload[index];
+            console.log(state[inventoryName][index], payload[index]);
+        }
         context.patchState(state);
     }
 }
