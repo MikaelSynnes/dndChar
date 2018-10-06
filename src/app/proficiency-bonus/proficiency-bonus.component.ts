@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { Subscription } from 'rxjs';
+import { Store, Select } from '@ngxs/store';
+import { Subscription, Observable } from 'rxjs';
+import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
 
 @Component({
   selector: 'app-proficiency-bonus',
@@ -9,14 +10,12 @@ import { Subscription } from 'rxjs';
 })
 export class ProficiencyBonusComponent implements OnInit, OnDestroy {
   proficiencyBonus: number = 0;
-  proficiencyBonus$: Subscription;
+  @Select(BaseCharacterModelState.getProficiencyBonus)proficiencyBonus$: Observable<number>;
 
   constructor(private store: Store) {
     
-    this.proficiencyBonus$ = this.store.select(state => {
-      return state.allStateModel.baseStats.proficiencyBonus;
-    }).subscribe(e => {
-      this.proficiencyBonus = e;
+    this.proficiencyBonus$.subscribe(bonus => {
+      this.proficiencyBonus = bonus;
     });
   }
 
@@ -24,6 +23,5 @@ export class ProficiencyBonusComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.proficiencyBonus$.unsubscribe();
   }
 }
