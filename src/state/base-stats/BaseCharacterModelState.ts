@@ -163,7 +163,7 @@ export class BaseCharacterModelState {
             skills.push(new SkillModel(Skills.acrobatics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.none));
             skills.push(new SkillModel(Skills.animalHandling, state.baseStats.wisdom, proficiency, SkillProficiencyBonus.half));
             skills.push(new SkillModel(Skills.arcana, state.baseStats.intelligence, proficiency, SkillProficiencyBonus.checked));
-            skills.push(new SkillModel(Skills.athletics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.expertice));
+            skills.push(new SkillModel(Skills.athletics, state.baseStats.dexterity, proficiency, SkillProficiencyBonus.expertise));
             skills.push(new SkillModel(Skills.deception, state.baseStats.charisma, proficiency));
             skills.push(new SkillModel(Skills.history, state.baseStats.intelligence, proficiency));
             skills.push(new SkillModel(Skills.insight, state.baseStats.wisdom, proficiency));
@@ -192,7 +192,7 @@ export class BaseCharacterModelState {
             let proficiency = state.baseStats.proficiencyBonus;
             savingThrows.push(new AbilitySavingThrow(state.baseStats.strength, proficiency, SkillProficiencyBonus.half));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.dexterity, proficiency, SkillProficiencyBonus.checked));
-            savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertice));
+            savingThrows.push(new AbilitySavingThrow(state.baseStats.constitution, proficiency, SkillProficiencyBonus.expertise));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.intelligence, proficiency));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.wisdom, proficiency));
             savingThrows.push(new AbilitySavingThrow(state.baseStats.charisma, proficiency));
