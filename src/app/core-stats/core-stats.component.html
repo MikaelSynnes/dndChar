@@ -1,10 +1,9 @@
 <section>
-  <h1>STATS</h1>
-    <ul>
-      <li *ngFor="let n of abilityScores">
-        <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}" (change)="onAbilityScoreChange($event, n)">
+    <ul class="list-group">
+      <li *ngFor="let n of abilityScores" class="list-group-item">
         <label for="character{{n.name| capitalize}}">{{n.name| capitalize}}</label>
+        <input type="number" name="character{{n.name| capitalize}}" id="character{{n.name| capitalize}}" value="{{n.stat}}" (change)="onAbilityScoreChange($event, n)">
+        <input type="text" disabled value="+0" /><!--Todo: Replace value +0 with dynamic one-->
       </li>
     </ul>
-  <app-inspiration></app-inspiration>
 </section>

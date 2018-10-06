@@ -1,7 +1,7 @@
 <section>
-  <h2>Saving throws</h2>
-  <ul>
-    <li *ngFor="let n of savingThrows$|async;">
+  <h5>Saving throws</h5>
+  <ul class="list-group">
+    <li *ngFor="let n of savingThrows$|async;" class="list-group-item">
       <select (change)="parseValue($event.target.value, n)">
         <option *ngFor="let item of options;" [value]="item" [selected]="n.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
       </select>
