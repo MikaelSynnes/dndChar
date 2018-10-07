@@ -42,6 +42,7 @@ export class BaseStats extends AbilityScoreBase implements HealthInfoInterface {
     }
 
     public get proficiencyBonus () {
+        console.log("Proficiency bonus!", this.level);
         //(Level / 4) + 1 rounded up
         return Math.ceil((this.level / 4) + 1);
     }
