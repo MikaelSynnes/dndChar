@@ -3,9 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:6-browsers
-
-    working_directory: ~/
-
+      
     steps:
       - checkout
 
