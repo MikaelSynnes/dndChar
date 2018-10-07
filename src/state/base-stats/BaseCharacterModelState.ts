@@ -3,23 +3,23 @@ import { State, StateContext, Selector, Action } from '@ngxs/store';
 import { BaseStats } from './BaseStatsModel';
 import { AbilityScoreBase } from './AbilityScoreBase';
 import { AbilityScore } from './AbilityScore';
-import { ResetStateModelAction } from '../actions/ResetStateModelAction';
 import { AbilitySavingThrow } from './AbilitySavingThrow';
-import { UpdateInspirationAction } from '../actions/UpdateInspirationAction';
-import { UpdateCharacterLevelAction } from '../actions/UpdateCharacterLevelAction';
-import { SkillModel } from '../skills/SkillsModel';
-import { Skills } from '../skills/Skills';
 import { SkillProficiencyBonus } from './SkillProficiencyBonus';
-import { UpdateSkillModelAction } from '../actions/UpdateSkillModelAction';
-import { UpdateCharacterAlignmentAction } from '../actions/UpdateCharacterAlignmentAction';
 import { HealthInfoInterface } from './HealthInfoInterface';
-import { UpdateDamageTakenAction } from '../actions/UpdateDamageTakenAction';
-import { UpdateTemporaryHitPointsAction } from '../actions/UpdateTemporaryHitPointsAction';
-import { UpdateHealthAction } from '../actions/UpdateHealthAction';
-import { UpdateAbilitySavingThrowAction } from '../actions/UpdateAbilitySavingThrow';
 import { BaseCharacterModel } from './BaseCharacterModel';
 import { SetupSkillsAction } from 'src/state/actions/SetupSkillsAction';
-import { SetupSavingThrowsAction } from '../actions/SetupSavingThrowsAction';
+import { UpdateInspirationAction } from 'src/state/actions/UpdateInspirationAction';
+import { UpdateCharacterLevelAction } from 'src/state/actions/UpdateCharacterLevelAction';
+import { UpdateSkillModelAction } from 'src/state/actions/UpdateSkillModelAction';
+import { UpdateCharacterAlignmentAction } from 'src/state/actions/UpdateCharacterAlignmentAction';
+import { UpdateDamageTakenAction } from 'src/state/actions/UpdateDamageTakenAction';
+import { UpdateTemporaryHitPointsAction } from 'src/state/actions/UpdateTemporaryHitPointsAction';
+import { UpdateAbilitySavingThrowAction } from 'src/state/actions/UpdateAbilitySavingThrow';
+import { SkillModel } from 'src/state/skills/SkillsModel';
+import { Skills } from 'src/state/skills/Skills';
+import { SetupSavingThrowsAction } from 'src/state/actions/SetupSavingThrowsAction';
+import { ResetStateModelAction } from 'src/state/actions/ResetStateModelAction';
+import { UpdateHealthAction } from 'src/state/actions/UpdateHealthAction';
 
 @State<BaseCharacterModel>({
     name: 'BaseCharacterModelState',

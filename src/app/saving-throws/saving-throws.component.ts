@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store,  Select } from '@ngxs/store';
-import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
 import { Observable } from 'rxjs';
-import { AbilitySavingThrow } from '../../state/base-stats/AbilitySavingThrow';
-import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
-import { UpdateAbilitySavingThrowAction } from '../../state/actions/UpdateAbilitySavingThrow';
-import { SetupSavingThrowsAction } from '../../state/actions/SetupSavingThrowsAction';
+import { BaseCharacterModelState } from 'src/state/base-stats/BaseCharacterModelState';
+import { AbilitySavingThrow } from 'src/state/base-stats/AbilitySavingThrow';
+import { SkillProficiencyBonus } from 'src/state/base-stats/SkillProficiencyBonus';
+import { UpdateAbilitySavingThrowAction } from 'src/state/actions/UpdateAbilitySavingThrow';
+import { SetupSavingThrowsAction } from 'src/state/actions/SetupSavingThrowsAction';
 
 @Component({
   selector: 'app-saving-throws',

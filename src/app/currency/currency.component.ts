@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { CurrencyState } from '../../state/currency/CurrencyState';
 import { Observable } from 'rxjs';
-import { CurrencyEnum } from '../../state/currency/CurrencyEnum';
 import { UpdateCurrencyAction } from 'src/state/actions/UpdateCurrencyAction';
-import { CurrencyStateModel } from '../../state/currency/CurrencyStateModel';
+import { CurrencyState } from 'src/state/currency/CurrencyState';
+import { CurrencyEnum } from 'src/state/currency/CurrencyEnum';
 
 @Component({
   selector: 'app-currency',

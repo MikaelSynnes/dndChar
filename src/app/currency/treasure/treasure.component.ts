@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { CurrencyState } from '../../../state/currency/CurrencyState';
-import { TreasureModel } from "../../../state/currency/TreasureModel";
-import { CurrencyEnum } from "../../../state/currency/CurrencyEnum";
 import { Observable } from 'rxjs';
-import { UpdateTreasureModelAction } from '../../../state/actions/UpdateTreasureModelAction';
+import { CurrencyState } from 'src/state/currency/CurrencyState';
+import { TreasureModel } from 'src/state/currency/TreasureModel';
+import { CurrencyEnum } from 'src/state/currency/CurrencyEnum';
+import { UpdateTreasureModelAction } from 'src/state/actions/UpdateTreasureModelAction';
 
 @Component({
   selector: 'app-currency-treasure',

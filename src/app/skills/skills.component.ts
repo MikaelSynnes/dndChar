@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseCharacterModelState } from '../../state/base-stats/BaseCharacterModelState';
-import { SkillModel } from '../../state/skills/SkillsModel';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
-import { SkillProficiencyBonus } from '../../state/base-stats/SkillProficiencyBonus';
-import { UpdateSkillModelAction } from '../../state/actions/UpdateSkillModelAction';
 import { SetupSkillsAction } from 'src/state/actions/SetupSkillsAction';
+import { BaseCharacterModelState } from 'src/state/base-stats/BaseCharacterModelState';
+import { SkillModel } from 'src/state/skills/SkillsModel';
+import { SkillProficiencyBonus } from 'src/state/base-stats/SkillProficiencyBonus';
+import { UpdateSkillModelAction } from 'src/state/actions/UpdateSkillModelAction';
 
 @Component({
   selector: 'app-skills',

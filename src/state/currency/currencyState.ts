@@ -1,11 +1,12 @@
-import { CurrencyStateModel } from "./CurrencyStateModel";
-import { TreasureModel } from "./TreasureModel";
-import { CurrencyEnum } from "./CurrencyEnum";
-import { State, Selector, StateContext, Action } from "@ngxs/store";
+import { CurrencyStateModel } from "src/state/currency/CurrencyStateModel";
+import { TreasureModel } from "src/state/currency/TreasureModel";
+import { CurrencyEnum } from "src/state/currency/CurrencyEnum";
+import { CurrencyModel } from "src/state/currency/CurrencyModel";
+import { Selector, StateContext, Action, State } from "@ngxs/store";
 import { UpdateTreasureModelAction } from "src/state/actions/UpdateTreasureModelAction";
 import { UpdateCurrencyAction } from "src/state/actions/UpdateCurrencyAction";
-import { UpdateCurrencyTotalsActions } from "../actions/UpdateCurrencyTotalsActions";
-import { CurrencyModel } from "./CurrencyModel";
+import { UpdateCurrencyTotalsActions } from "src/state/actions/UpdateCurrencyTotalsActions";
+
 
 @State<CurrencyStateModel>({
     name: 'CurrencyState',
