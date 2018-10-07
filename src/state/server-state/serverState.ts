@@ -1,4 +1,4 @@
-import { State, Selector, StateContext, Action } from "@ngxs/store";
+import { State, Selector } from "@ngxs/store";
 import { ServerStateModel } from "src/state/server-state/serverStateModel";
 
 @State<ServerStateModel>({
