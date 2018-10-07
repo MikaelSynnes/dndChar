@@ -5,9 +5,10 @@
       <select (change)="parseValue($event.target.value, n)">
         <option *ngFor="let item of options;" [value]="item" [selected]="n.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
       </select>
-      <input type="number" name="characterSave{{n.ability.name| capitalize}}" id="characterSave{{n.ability.name| capitalize}}" value="{{n.ability.stat}}">
+      <input type="number" name="characterSave{{n.ability.name| capitalize}}" id="characterSave{{n.ability.name| capitalize}}" value="{{n.ability.stat}}" disabled>
       <label for="characterSave{{n.ability.name| capitalize}}ProfBonus">{{n.ability.name| capitalize}}</label>
-      {{n.proficiency}}
+      <!--Not sure why this is here.-->
+      <!--{{n.proficiency}}-->
     </li>
   </ul>
 </section>

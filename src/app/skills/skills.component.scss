@@ -1,0 +1,25 @@
+.list-group-item {
+  padding: 0em;
+
+  select {
+    border:0px;
+    cursor:pointer;
+  }
+
+  input {
+
+    &[type=number] {
+      text-align: right;
+      padding-right:0.5em;
+
+      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+        display:none;
+      }
+    }
+  }
+
+  label {
+    margin-left:0.6em;
+    margin-bottom:0px;
+  }
+}
