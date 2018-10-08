@@ -1,8 +1,11 @@
 <div class="row">
-  <!--PROJ LOGO, CHAR NAME-->
-  <div class="col-sm">
+  <!--PROJ LOGO-->
+  <div class="col-auto">
     <img src="/assets/favicon.png" />
+  </div>
 
+  <div class="col-sm">
+    
   </div>
 
   <!--BASIC & BACKGROUND-->
@@ -15,38 +18,27 @@
 
 <div class="row">
 
-  <!--LEFT COLUMN (ABILITY SCORE, PROFICIENCIES)-->
-  <div class="col-sm">
-    <div class="row">
-      <div>
+  <!--LEFT COLUMN (ABILITY SCORE, SKILLS & PROFICIENCIES)-->
+  <div class="col-auto">
 
-        <!--PROFICIENCY BONUS-->
-        <app-proficiency-bonus></app-proficiency-bonus>
+    <!--PROFICIENCY BONUS-->
+    <app-proficiency-bonus></app-proficiency-bonus>
 
-        <!--ABILITY SCORE-->
-        <app-core-stats></app-core-stats>
-      </div>
-
-      <!--SAVING THROWS & SKILLS-->
-      <div class="col-sm">
-        <!--SAVING THROWS-->
-        <app-saving-throws></app-saving-throws>
-
-        <!--SKILLS-->
-        <app-skills></app-skills>
-      </div>
-    </div>
-
-    <div class="row">
-      <!--ADDITIONAL PROFICIENCIES?-->
-      <div class="col-sm">
-
-      </div>
-    </div>
+    <!--ABILITY SCORE-->
+    <app-core-stats></app-core-stats>
   </div>
-  <div class="col-sm">
+
+  <!--SAVING THROWS & SKILLS-->
+  <div class="col-">
+    <!--SAVING THROWS-->
+    <app-saving-throws></app-saving-throws>
+
+    <!--SKILLS-->
+    <app-skills></app-skills>
+  </div>
+  <div class="col-">
     <!--Todo: AC, init, speed, xp?-->
-    <app-inspiration></app-inspiration>
+    <!--<app-inspiration></app-inspiration>-->
 
     <app-health></app-health>
 

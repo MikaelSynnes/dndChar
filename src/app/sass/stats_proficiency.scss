@@ -1,0 +1,19 @@
+.list-group {
+  .list-group-item {
+    text-align: center;
+
+    input {
+      font-size: 1.8em;
+      text-align: center;
+
+      &[type=text] {
+        width: 2.2em;
+      }
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+    }
+  }
+}
