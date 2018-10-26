@@ -1,1 +1,33 @@
-@import "../sass/stats_proficiency.scss";
+.form-control-lg{
+    width: 150%;
+    height: 150%;
+}
+.list-group-item{
+    background-color: lightgray ;
+    border-radius:50px;
+    border-style:inset solid;
+    border-width:3px;
+}
+.form-control{
+    width:150%;
+    text-align: center;
+    font-size:40px;
+    border-radius:30px;
+    background-color:lightgray;
+    border-style:inset solid;
+    border-width:3px;
+    border-color:black;
+    height:200%;
+}
+h5{
+    color:#FF5900;
+    font-family:Sans-serif;
+  }
+#bonus{
+    font-size:15px;
+}
+.statLabel{
+    font-size:20px;
+    color:#FF5900;
+    border-width:3px;
+}

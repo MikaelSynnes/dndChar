@@ -1,55 +1,25 @@
-<div class="row">
-  <!--PROJ LOGO-->
-  <div class="col-auto">
-    <img src="/assets/favicon.png" />
+<div class="backg">
+  <div class="row">
+    <!--PROJ LOGO-->
+    <div class="col-auto">
+      <img src="/assets/favicon.png" />
+    </div>
+    <div class="col-sm">
+    </div>
+    <!--BASIC & BACKGROUND-->
+    <div class="col-sm">
+      <!--Todo: Character class, background, etc?-->
+    </div>
   </div>
 
-  <div class="col-sm">
-    
+  <hr />
+  <div class="container">
+    <div class="content">
+
+
+      <app-navigation-bar></app-navigation-bar>
+
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
-  <!--BASIC & BACKGROUND-->
-  <div class="col-sm">
-    <!--Todo: Character class, background, etc?-->
-  </div>
-</div>
-
-<hr />
-
-<div class="row">
-
-  <!--LEFT COLUMN (ABILITY SCORE, SKILLS & PROFICIENCIES)-->
-  <div class="col-auto">
-
-    <!--PROFICIENCY BONUS-->
-    <app-proficiency-bonus></app-proficiency-bonus>
-
-    <!--ABILITY SCORE-->
-    <app-core-stats></app-core-stats>
-  </div>
-
-  <!--SAVING THROWS & SKILLS-->
-  <div class="col-">
-    <!--SAVING THROWS-->
-    <app-saving-throws></app-saving-throws>
-
-    <!--SKILLS-->
-    <app-skills></app-skills>
-  </div>
-  <div class="col-">
-    <!--Todo: AC, init, speed, xp?-->
-    <!--<app-inspiration></app-inspiration>-->
-
-    <app-health></app-health>
-
-    <!--Todo: Attack/spell modifiers-->
-  </div>
-</div>
-
-<hr />
-
-<div class="row">
-
-  <app-currency></app-currency>
-  <app-inventory-manager></app-inventory-manager>
 </div>

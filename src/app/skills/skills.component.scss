@@ -1,1 +1,36 @@
-@import "../sass/skills_saving-throws.scss";
+
+label{
+    color:black;
+    font-size:20px;
+    margin-left:5px;
+}
+.form-inline{
+    background-color:#8E4100;
+    padding:10px;
+    border-style:ridge;
+
+}
+.form-control{
+    width: 20%;
+}
+h5{
+    font-size:30px;
+    color:#FF5900;
+    font-family:Sans-serif;
+}
+
+.skillvalue{
+    background-color:#8E4100;
+}
+
+input{
+    width:50%;
+}
+.list-group{
+    background-color:#8E4100;
+    padding:10px;
+    border-radius:20px;
+}
+section{
+    padding:30px;
+}

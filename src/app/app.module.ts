@@ -24,6 +24,12 @@ import { BaseCharacterModelState } from 'src/state/base-stats/BaseCharacterModel
 import { InventoryState } from 'src/state/inventory/inventoryState';
 import { CurrencyState } from 'src/state/currency/CurrencyState';
 import { ServerState } from 'src/state/server-state/serverState';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { StatsPageComponent } from './stats-page/stats-page.component';
+import { RoutingModule } from './routing/routing.module';
+import { CharinfoComponent } from './charinfo/charinfo.component';
+import { InventoryComponent } from './inventory/inventory.component';
+
 
 @NgModule({
   declarations: [
@@ -43,10 +49,15 @@ import { ServerState } from 'src/state/server-state/serverState';
     CurrencyComponent,
     CurrencyTreasureComponent,
     ObjectKeysPipe,
+    NavigationBarComponent,
+    StatsPageComponent,
+    CharinfoComponent,
+    InventoryComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    RoutingModule,
     NgxsModule.forRoot([BaseCharacterModelState, InventoryState, CurrencyState, ServerState], {developmentMode: true }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),

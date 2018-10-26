@@ -1,12 +1,16 @@
 <section>
-  <h5>Skills</h5>
-  <ul class="list-group">
-    <li *ngFor="let skill of skills$|async" class="list-group-item">
-      <select (change)="parseValue($event.target.value, skill)">
-        <option *ngFor="let item of options;" [value]="item" [selected]="skill.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
-      </select>
-      <input type="number" name="skill{{skill.name| capitalize}}" id="skill{{skill.name| capitalize}}" value="{{skill.proficiencyScore}}" disabled>
-      <label for="skill{{skill.name| capitalize}}">{{skill.name| capitalize}}</label>
-    </li>
-  </ul>
+ 
+
+    <ul class="list-group">
+        <h5>Skills</h5>
+      <li *ngFor="let skill of skills$|async" class="form-inline">
+        <select (change)="parseValue($event.target.value, skill)" class="form-control">
+          <option *ngFor="let item of options;" [value]="item" [selected]="skill.proficiencyBonus==SkillProficiencyBonus[item]">{{item}}</option>
+        </select>
+        <input type="text" class="form-control" name="skill{{skill.name| capitalize}}" id="skill{{skill.name| capitalize}}" value="{{skill.proficiencyScore}}"
+          disabled>
+        <label for="skill{{skill.name| capitalize}}">{{skill.name| capitalize}}</label>
+      </li>
+    </ul>
+
 </section>

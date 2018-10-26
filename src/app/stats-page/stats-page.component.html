@@ -1,0 +1,35 @@
+<div class="row">
+
+  <!--LEFT COLUMN (ABILITY SCORE, SKILLS & PROFICIENCIES)-->
+  <div class="col-sm-2">
+    <!--ABILITY SCORE-->
+    <app-core-stats></app-core-stats>
+  </div>
+  <div class="col-6 ">
+    <div class="col-3 d-inline-block">
+      <!--PROFICIENCY BONUS-->
+        <app-proficiency-bonus></app-proficiency-bonus>
+    </div>
+    
+    <div class="col-6 d-inline-block">
+      <app-charinfo></app-charinfo>
+    </div>
+
+    <!--SKILLS-->
+    <div class="break-flow">
+    <app-skills></app-skills>
+  </div>
+  </div>
+  <!--SAVING THROWS & SKILLS-->
+  <div class="col-3 ">
+    <app-health></app-health>
+    <!--SAVING THROWS-->
+    <app-saving-throws></app-saving-throws>
+
+  </div>
+  <div class="col-6 ">
+    <!--Todo: AC, init, speed, xp?-->
+    <!--<app-inspiration></app-inspiration>-->
+    <!--Todo: Attack/spell modifiers-->
+  </div>
+</div>
